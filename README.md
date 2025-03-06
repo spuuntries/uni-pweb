@@ -2,7 +2,13 @@
 
 Web Programming Faiz @ ITS'23
 
-See the deployed version at: https://pweb.spuun.art  
-| Assignment | Route |
-| ---------- | ------- |
-| Tugas 1 - CV | [/tugas-1](https://pweb.spuun.art/tugas-1) |
+<table>
+    <tr>
+        <th>Assignment</th>
+        <th>Route</th>
+    </tr>
+    <tr>
+        <td>Tugas 1 - CV</td>
+        <td><a href="https://pweb.spuun.art/tugas-1">/tugas-1</a></td>
+    </tr>
+</table>
