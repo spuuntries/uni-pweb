@@ -103,7 +103,10 @@
       }
 
       @media print {
-        .accessibility-panel {
+        .accessibility-panel * {
+          display: none;
+        }
+        #panelIcon {
           display: none;
         }
       }
