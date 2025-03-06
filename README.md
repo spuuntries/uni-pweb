@@ -2,6 +2,8 @@
 
 Web Programming Faiz @ ITS'23
 
+View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
+
 <table>
     <tr>
         <th>Assignment</th>
