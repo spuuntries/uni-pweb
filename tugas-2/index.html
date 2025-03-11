@@ -35,7 +35,7 @@
 
       h1.title {
         font-family: "Monocraft", monospace !important;
-        font-size: clamp(20px, 4vw, 50px);
+        font-size: clamp(20px, 4vw, 35px);
         margin-bottom: 0;
       }
 
@@ -174,8 +174,9 @@
       .dragndrop-container {
         width: 50vw;
         position: relative;
-        margin-top: 10em;
-        margin-right: 1em;
+        margin-top: 14em;
+        margin-right: 0;
+        margin-bottom: -10px;
         padding: 1em;
         font-family: "Miracode", monospace !important;
         max-width: 840px;
@@ -191,7 +192,7 @@
         z-index: 2;
         font-size: 1.25em;
         overflow-wrap: anywhere;
-        font-size: max(1.5vw, 1em);
+        font-size: clamp(1em, 1.5vw, 18px);
       }
 
       @media (min-width: 501px) {
@@ -212,7 +213,7 @@
 
       @media (max-width: 500px) {
         .dragndrop-container {
-          margin-top: 3em;
+          margin-top: 7em !important;
           padding: 1em;
           backdrop-filter: unset;
         }
@@ -273,7 +274,6 @@
         border-radius: 10px;
         border: 1px solid rgba(245, 179, 179, 0.3);
         position: relative;
-        z-index: 10;
         backdrop-filter: blur(10px);
       }
 
@@ -294,7 +294,6 @@
         padding: 2rem 0;
         margin-left: 1em;
         position: relative;
-        overflow: hidden;
       }
 
       .component-box {
@@ -309,12 +308,15 @@
         gap: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
       }
 
       .component-box:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         border-color: gold;
+        z-index: 1001;
       }
 
       .component-icon {
@@ -385,7 +387,7 @@
         }
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 862px) {
         .pipeline-mockup {
           flex-direction: column;
           gap: 0.5rem;
@@ -430,6 +432,60 @@
         }
       }
 
+      .integration-dropdown {
+        font-family: "Miracode", monospace !important;
+        position: absolute;
+        background: rgba(30, 30, 30, 0.95);
+        border: 1px solid rgba(245, 179, 179, 0.3);
+        border-radius: 8px;
+        padding: 0.5rem;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        top: 100%;
+        left: 50%;
+        z-index: 1000;
+        transform: translateX(-50%);
+        backdrop-filter: blur(10px);
+      }
+
+      .component-box:hover .integration-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .integration-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background 0.2s ease;
+        cursor: pointer;
+      }
+
+      .integration-option:hover {
+        background: rgba(245, 179, 179, 0.1);
+      }
+
+      .integration-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+      .integration-name {
+        font-size: 0.9em;
+        color: #fff;
+      }
+
+      .component-box {
+        position: relative;
+      }
+
       /* ANCHOR Pricing */
       .pricing-section {
         padding: 4rem 1rem;
@@ -446,7 +502,7 @@
 
       .pricing-card {
         flex: 1;
-        min-width: 320px;
+        min-width: 300px;
         max-width: 350px;
         background: rgba(20, 20, 20, 0.6);
         border: 1px solid rgba(245, 179, 179, 0.3);
@@ -470,7 +526,7 @@
       .pricing-card.featured::before {
         content: "MOST POPULAR";
         position: absolute;
-        top: 42px;
+        top: 35px;
         right: -45px;
         background: gold;
         color: black;
@@ -516,6 +572,10 @@
         color: rgba(245, 179, 179, 0.7);
       }
 
+      .pricing-features li::marker {
+        content: none;
+      }
+
       .pricing-card .outline {
         width: 100%;
         margin-top: 1rem;
@@ -544,16 +604,16 @@
               style="
                 margin: 0 !important;
                 background-color: rgb(101, 23, 23);
-                width: clamp(10px, 2vw, 25px);
-                height: clamp(10px, 2vw, 25px);
+                width: clamp(10px, 2vw, 20px);
+                height: clamp(10px, 2vw, 20px);
               "
             ></div>
             <div
               style="
                 margin: 0 !important;
                 background-color: rgb(216, 32, 32);
-                width: clamp(10px, 2vw, 35px);
-                height: clamp(12.5px, 2.5vw, 35px);
+                width: clamp(12.5px, 2vw, 25px);
+                height: clamp(12.5px, 2.5vw, 25px);
               "
             ></div>
           </div>
@@ -643,6 +703,45 @@
             <div class="component-box data-source">
               <div class="component-icon">📊</div>
               <div class="component-name">Data Source</div>
+              <div class="integration-dropdown">
+                <div class="integration-option">
+                  <img
+                    src="https://github.com/favicon.ico"
+                    class="integration-icon"
+                    alt="GitHub"
+                  />
+                  <span class="integration-name">GitHub</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://ssl.gstatic.com/docs/spreadsheets/spreadsheets_2023q4.ico"
+                    class="integration-icon"
+                    alt="Google Sheets"
+                  />
+                  <span class="integration-name">Google Sheets</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://www.postgresql.org/favicon.ico"
+                    class="integration-icon"
+                    alt="PostgreSQL"
+                  />
+                  <span class="integration-name">PostgreSQL</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://www.mongodb.com/favicon.ico"
+                    class="integration-icon"
+                    alt="MongoDB"
+                  />
+                  <span class="integration-name">MongoDB</span>
+                </div>
+                <div class="integration-option">
+                  <span class="integration-name" style="opacity: 0.85"
+                    >and others...</span
+                  >
+                </div>
+              </div>
             </div>
 
             <div class="connection-arrow">→</div>
@@ -650,6 +749,45 @@
             <div class="component-box ai-model">
               <div class="component-icon">🧠</div>
               <div class="component-name">AI Model</div>
+              <div class="integration-dropdown">
+                <div class="integration-option">
+                  <img
+                    src="https://openai.com/favicon.ico"
+                    class="integration-icon"
+                    alt="GPT"
+                  />
+                  <span class="integration-name">GPT-4o</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://anthropic.com/favicon.ico"
+                    class="integration-icon"
+                    alt="Claude"
+                  />
+                  <span class="integration-name">Claude 3.5 Sonnet</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://pytorch.org/favicon.ico"
+                    class="integration-icon"
+                    alt="PyTorch"
+                  />
+                  <span class="integration-name">Custom PyTorch</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://www.gstatic.com/devrel-devsite/prod/v718dd607f99926e9e0e7eb375d5f6155db0a99cab136ac991f232c506c338c80/tensorflow/images/favicon.png"
+                    class="integration-icon"
+                    alt="TensorFlow"
+                  />
+                  <span class="integration-name">Custom TensorFlow</span>
+                </div>
+                <div class="integration-option">
+                  <span class="integration-name" style="opacity: 0.85"
+                    >and others...</span
+                  >
+                </div>
+              </div>
             </div>
 
             <div class="connection-arrow">→</div>
@@ -657,6 +795,20 @@
             <div class="component-box filter">
               <div class="component-icon">🔍</div>
               <div class="component-name">Filter</div>
+              <div class="integration-dropdown">
+                <div class="integration-option">
+                  <span class="integration-icon">🎯</span>
+                  <span class="integration-name">Custom Rules</span>
+                </div>
+                <div class="integration-option">
+                  <span class="integration-icon">📊</span>
+                  <span class="integration-name">Statistical</span>
+                </div>
+                <div class="integration-option">
+                  <span class="integration-icon">🤖</span>
+                  <span class="integration-name">ML-based</span>
+                </div>
+              </div>
             </div>
 
             <div class="connection-arrow">→</div>
@@ -664,6 +816,45 @@
             <div class="component-box output">
               <div class="component-icon">📤</div>
               <div class="component-name">Output</div>
+              <div class="integration-dropdown">
+                <div class="integration-option">
+                  <img
+                    src="https://www.docker.com/favicon.ico"
+                    class="integration-icon"
+                    alt="Docker"
+                  />
+                  <span class="integration-name">Docker</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://aws.amazon.com/favicon.ico"
+                    class="integration-icon"
+                    alt="AWS Lambda"
+                  />
+                  <span class="integration-name">AWS Lambda</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://github.com/favicon.ico"
+                    class="integration-icon"
+                    alt="GitHub"
+                  />
+                  <span class="integration-name">GitHub</span>
+                </div>
+                <div class="integration-option">
+                  <img
+                    src="https://ssl.gstatic.com/docs/spreadsheets/spreadsheets_2023q4.ico"
+                    class="integration-icon"
+                    alt="Google Sheets"
+                  />
+                  <span class="integration-name">Google Sheets</span>
+                </div>
+                <div class="integration-option">
+                  <span class="integration-name" style="opacity: 0.85"
+                    >and others...</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
 
@@ -689,7 +880,7 @@
               <li>Community Support</li>
               <li>Basic Analytics</li>
             </ul>
-            <button class="outline">Get Started</button>
+            <button class="contrast">Get Started</button>
           </div>
 
           <div class="pricing-card featured">
@@ -703,7 +894,7 @@
               <li>Advanced Analytics</li>
               <li>Custom Integrations</li>
             </ul>
-            <button class="outline">Get Started</button>
+            <button class="contrast">Get Started</button>
           </div>
 
           <div class="pricing-card">
@@ -717,7 +908,7 @@
               <li>Custom AI Models</li>
               <li>On-premise Deployment</li>
             </ul>
-            <button class="outline">Contact Sales</button>
+            <button class="contrast">Contact Sales</button>
           </div>
         </div>
       </section>
@@ -763,6 +954,12 @@
         document.getElementById("pricing-section").scrollIntoView({
           behavior: "smooth",
         });
+      });
+
+      document.addEventListener("readystatechange", () => {
+        document.querySelector(".copyright").innerHTML = document
+          .querySelector(".copyright")
+          .innerHTML.replace("2024", new Date().getFullYear().toString());
       });
     </script>
   </body>
