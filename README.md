@@ -13,4 +13,8 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
         <td>Tugas 1 - CV</td>
         <td><a href="https://pweb.spuun.art/tugas-1">/tugas-1</a></td>
     </tr>
+    <tr>
+        <td>Tugas 2 - Landing Page</td>
+        <td><a href="https://pweb.spuun.art/tugas-1">/tugas-2</a></td>
+    </tr>
 </table>
