@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/baffle@0.3.6/dist/baffle.min.js"></script>
+  </head>
+  <body>
+    <style>
+      @font-face {
+        font-family: "Monocraft";
+        src:
+          url("Monocraft.woff2") format("woff2"),
+          url("Monocraft.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Miracode";
+        src:
+          url("Miracode.woff2") format("woff2"),
+          url("Miracode.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      h1.title {
+        font-family: "Monocraft", monospace !important;
+        font-size: clamp(20px, 4vw, 50px);
+        margin-bottom: 0;
+      }
+
+      header {
+        background-color: rgba(245, 245, 220, 0.107);
+        padding-left: 1em !important;
+        border-bottom: solid 1px rgba(245, 179, 179, 0.5) !important;
+      }
+
+      #tagline {
+        font-family: "Miracode", monospace !important;
+        font-weight: lighter;
+        overflow-wrap: anywhere;
+        margin-left: 1em;
+        margin-top: 1em;
+        font-size: clamp(25px, 3.5vw, 42px);
+      }
+
+      #taglinetype {
+        color: gold;
+        font-weight: 900 !important;
+        font-size: 125%;
+      }
+
+      #aigril {
+        z-index: -1;
+        position: absolute;
+        right: 0;
+        top: 200px;
+        opacity: 0.6;
+        transform: scaleX(-1);
+        width: 65vw;
+        max-width: 1260px;
+        transition: opacity ease-in-out 200ms;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 10%,
+          black 85%,
+          transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 15%,
+          black 85%,
+          transparent 100%
+        );
+      }
+
+      @media (max-width: 500px) {
+        #aigril {
+          opacity: 0.25;
+        }
+
+        #tagline {
+          margin: 0;
+        }
+      }
+
+      @media (max-width: 319px) {
+        #aigril {
+          display: none;
+        }
+      }
+
+      #pricing {
+        transition: all 0.3s ease;
+      }
+
+      #pricing:focus {
+        outline: none;
+        box-shadow: none;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white !important;
+        transition: all 0.3s;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-right: 1em;
+      }
+
+      @media (max-width: 500px) {
+        .nav-buttons {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          flex-direction: column;
+          background: var(--pico-background-color);
+          padding: 0 1em;
+          border: 1px solid rgba(245, 179, 179, 0.5);
+          border-radius: 5px;
+          margin-top: 5px;
+          z-index: 1000;
+
+          display: flex !important;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: all 0.4s ease-in-out;
+        }
+
+        .nav-buttons.active {
+          max-height: 200px;
+          opacity: 1;
+          padding: 1em;
+        }
+
+        header {
+          position: relative;
+          z-index: 1000;
+        }
+
+        .hamburger {
+          display: flex;
+          margin-right: 1em;
+        }
+      }
+
+      .dragndrop-container {
+        width: 50vw;
+        position: relative;
+        margin-top: 10em;
+        margin-right: 1em;
+        padding: 1em;
+        font-family: "Miracode", monospace !important;
+        max-width: 840px;
+        min-width: 176px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dragndrop-text {
+        text-align: end;
+        position: relative;
+        margin-bottom: 0;
+        color: whitesmoke !important;
+        z-index: 2;
+        font-size: 1.25em;
+        overflow-wrap: anywhere;
+        font-size: max(1.5vw, 1em);
+      }
+
+      @media (min-width: 501px) {
+        .dragndrop-container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+          border-radius: 10px 10px 0 0;
+          backdrop-filter: unset;
+          border: solid rgba(245, 179, 179, 0.3) 1px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .dragndrop-container {
+          margin-top: 3em;
+          padding: 1em;
+          backdrop-filter: unset;
+        }
+      }
+
+      footer {
+        margin-top: 4rem;
+        padding: 2rem 1rem;
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(245, 179, 179, 0.3);
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-family: "Miracode", monospace;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: gold;
+      }
+
+      .copyright {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      @media (max-width: 600px) {
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      /* ANCHOR : Pipeline CSS, this is chonky lol */
+      .pipeline-visual {
+        padding: 2rem 1rem;
+        background-color: rgba(20, 20, 20, 0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(245, 179, 179, 0.3);
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+      }
+
+      .visual-heading {
+        font-family: "Monocraft", monospace !important;
+        color: white;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: clamp(16px, 3vw, 32px);
+      }
+
+      .pipeline-mockup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 2rem 0;
+        margin-left: 1em;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .component-box {
+        background-color: rgba(50, 50, 50, 0.8);
+        border: 1px solid rgba(245, 179, 179, 0.4);
+        border-radius: 8px;
+        padding: 1rem;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .component-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        border-color: gold;
+      }
+
+      .component-icon {
+        font-size: clamp(2rem, 3vw, 50px);
+      }
+
+      .component-name {
+        font-family: "Miracode", monospace !important;
+        font-size: clamp(15px, 3vw, 20px);
+        text-align: center;
+      }
+
+      .connection-arrow {
+        color: rgba(245, 179, 179, 0.7);
+        font-size: 1.5rem;
+        margin: 0 5px;
+        animation: pulse 2s infinite;
+      }
+
+      .data-source {
+        border-color: #6a8caf;
+      }
+
+      .ai-model {
+        border-color: #af6a9d;
+      }
+
+      .filter {
+        border-color: #6aaf7a;
+      }
+
+      .output {
+        border-color: #af9d6a;
+      }
+
+      .pipeline-caption {
+        text-align: center;
+        margin-top: 2rem;
+        font-family: "Miracode", monospace !important;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        font-size: clamp(16px, 2vw, 25px);
+      }
+
+      .pill-highlight {
+        background-color: aliceblue;
+        color: darkblue;
+        text-decoration: underline;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-weight: bold;
+        display: inline-block;
+        font-size: clamp(16px, 2vw, 25px);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .pipeline-mockup {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .connection-arrow {
+          transform: rotate(90deg);
+        }
+
+        .component-box {
+          width: 80%;
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .component-name {
+          margin-left: 10px;
+        }
+      }
+
+      .component-box:nth-child(1) {
+        animation: fadeIn 0.5s ease-in-out 0.1s both;
+      }
+      .component-box:nth-child(3) {
+        animation: fadeIn 0.5s ease-in-out 0.3s both;
+      }
+      .component-box:nth-child(5) {
+        animation: fadeIn 0.5s ease-in-out 0.5s both;
+      }
+      .component-box:nth-child(7) {
+        animation: fadeIn 0.5s ease-in-out 0.7s both;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ANCHOR Pricing */
+      .pricing-section {
+        padding: 4rem 1rem;
+        margin-top: 2rem;
+      }
+
+      .pricing-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 3rem;
+        justify-content: center;
+      }
+
+      .pricing-card {
+        flex: 1;
+        min-width: 320px;
+        max-width: 350px;
+        background: rgba(20, 20, 20, 0.6);
+        border: 1px solid rgba(245, 179, 179, 0.3);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .pricing-card.featured {
+        border-color: gold;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.featured::before {
+        content: "MOST POPULAR";
+        position: absolute;
+        top: 42px;
+        right: -45px;
+        background: gold;
+        color: black;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: clamp(0.7rem, 1vw, 0.8rem);
+        font-weight: bold;
+        font-family: "Monocraft", monospace;
+      }
+
+      .price {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: bold;
+        color: white;
+        margin: 1rem 0;
+        font-family: "Monocraft", monospace;
+      }
+
+      .price-period {
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        color: #888;
+      }
+
+      .pricing-features {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+        text-align: left;
+        font-family: "Miracode", monospace;
+      }
+
+      .pricing-features li {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      .pricing-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: rgba(245, 179, 179, 0.7);
+      }
+
+      .pricing-card .outline {
+        width: 100%;
+        margin-top: 1rem;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      .plan-name {
+        font-family: "Monocraft", monospace;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        color: white;
+      }
+    </style>
+
+    <header class="container-fluid">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <div style="display: flex; vertical-align: top">
+            <div
+              style="
+                margin: 0 !important;
+                background-color: rgb(101, 23, 23);
+                width: clamp(10px, 2vw, 25px);
+                height: clamp(10px, 2vw, 25px);
+              "
+            ></div>
+            <div
+              style="
+                margin: 0 !important;
+                background-color: rgb(216, 32, 32);
+                width: clamp(10px, 2vw, 35px);
+                height: clamp(12.5px, 2.5vw, 35px);
+              "
+            ></div>
+          </div>
+          <h1 class="title">
+            regress<small style="color: pink"><small>.ai</small></small>
+          </h1>
+        </div>
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="nav-buttons">
+          <button
+            style="
+              background: none;
+              border: none;
+              max-height: 55px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 1em;
+              font-family: monospace;
+              font-weight: bold;
+              font-size: clamp(1em, 2vw, 15px) !important;
+            "
+            id="pricing"
+          >
+            Pricing
+          </button>
+          <div
+            role="button"
+            id="loginbutt"
+            class="outline contrast"
+            style="
+              border-radius: 10px;
+              max-height: 55px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 1em;
+              font-family: monospace;
+              border: dashed;
+              font-weight: bold;
+              font-size: clamp(1em, 2vw, 15px) !important;
+            "
+          >
+            Login
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-fluid" style="padding: 0">
+      <div style="padding: 1em; position: relative">
+        <div id="tagline-wrapper">
+          <h1 id="tagline">
+            Accelerate your<br />
+            <span id="taglinetype"></span><br />
+            with cutting-edge <br />AI models, <br />
+            in
+            <span
+              style="
+                background-color: aliceblue;
+                color: darkblue;
+                text-decoration: underline;
+                padding: 5px;
+                border-radius: 4px;
+              "
+              >Minutes</span
+            >.
+          </h1>
+        </div>
+
+        <img src="aigirl.webp" alt="AI GRIL" id="aigril" />
+
+        <div class="container-fluid dragndrop-container">
+          <p class="dragndrop-text">
+            Optimize any pipeline with a drag-n-drop no-code interface.
+          </p>
+        </div>
+
+        <section class="pipeline-visual container-fluid">
+          <h2 class="visual-heading">No-Code Pipeline Builder</h2>
+
+          <div class="pipeline-mockup">
+            <div class="component-box data-source">
+              <div class="component-icon">📊</div>
+              <div class="component-name">Data Source</div>
+            </div>
+
+            <div class="connection-arrow">→</div>
+
+            <div class="component-box ai-model">
+              <div class="component-icon">🧠</div>
+              <div class="component-name">AI Model</div>
+            </div>
+
+            <div class="connection-arrow">→</div>
+
+            <div class="component-box filter">
+              <div class="component-icon">🔍</div>
+              <div class="component-name">Filter</div>
+            </div>
+
+            <div class="connection-arrow">→</div>
+
+            <div class="component-box output">
+              <div class="component-icon">📤</div>
+              <div class="component-name">Output</div>
+            </div>
+          </div>
+
+          <div class="pipeline-caption">
+            <p>
+              Drag, drop, and connect components to build powerful AI workflows
+            </p>
+            <div class="pill-highlight">No coding required</div>
+          </div>
+        </section>
+      </div>
+
+      <section class="pricing-section container" id="pricing-section">
+        <h2 class="visual-heading">Simple, Transparent Pricing</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="plan-name">Starter</div>
+            <div class="price">$29<span class="price-period">/mo</span></div>
+            <ul class="pricing-features">
+              <li>5 AI Pipeline Projects</li>
+              <li>Basic AI Models</li>
+              <li>100k API Calls/month</li>
+              <li>Community Support</li>
+              <li>Basic Analytics</li>
+            </ul>
+            <button class="outline">Get Started</button>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="plan-name">Pro</div>
+            <div class="price">$99<span class="price-period">/mo</span></div>
+            <ul class="pricing-features">
+              <li>Unlimited Projects</li>
+              <li>Advanced AI Models</li>
+              <li>1M API Calls/month</li>
+              <li>Priority Support</li>
+              <li>Advanced Analytics</li>
+              <li>Custom Integrations</li>
+            </ul>
+            <button class="outline">Get Started</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="plan-name">Enterprise</div>
+            <div class="price">Custom</div>
+            <ul class="pricing-features">
+              <li>Custom Solutions</li>
+              <li>Dedicated Support</li>
+              <li>Unlimited API Calls</li>
+              <li>SLA Guarantee</li>
+              <li>Custom AI Models</li>
+              <li>On-premise Deployment</li>
+            </ul>
+            <button class="outline">Contact Sales</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="copyright">© 2024 regress.ai - All rights reserved</div>
+          <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Status</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const taglinetyped = new Typed("#taglinetype", {
+        strings: [
+          "Data<br/>Analytics",
+          "ML<br/>Pipeline",
+          "Customer<br/>Support",
+          "CI/CD<br/>Pipeline",
+          "Vuln<br/>Scanning",
+          "Vuln<br/>Fixing",
+          "Project.",
+        ],
+        typeSpeed: 25,
+        startDelay: 1,
+        cursorChar: "_",
+      });
+
+      const hamburger = document.querySelector(".hamburger");
+      const navButtons = document.querySelector(".nav-buttons");
+
+      hamburger.addEventListener("click", () => {
+        navButtons.classList.toggle("active");
+      });
+
+      document.getElementById("pricing").addEventListener("click", () => {
+        document.getElementById("pricing-section").scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
