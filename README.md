@@ -15,6 +15,6 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
     </tr>
     <tr>
         <td>Tugas 2 - Landing Page</td>
-        <td><a href="https://pweb.spuun.art/tugas-1">/tugas-2</a></td>
+        <td><a href="https://pweb.spuun.art/tugas-2">/tugas-2</a></td>
     </tr>
 </table>
