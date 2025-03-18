@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infographik.co.id - Complete Independence</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Independent news and analysis from Indonesia. Stay informed with the latest updates on politics, economy, technology, culture, and more from Infographik.co.id"
+    />
+    <meta
+      name="keywords"
+      content="Indonesia news, Indonesian politics, economy news, technology updates, cultural news, environmental news, breaking news Indonesia"
+    />
+    <meta name="author" content="Infographik.co.id" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Infographik.co.id - Complete Independence"
+    />
+    <meta
+      property="og:description"
+      content="Independent news and analysis from Indonesia. Stay informed with the latest updates on politics, economy, technology, culture, and more."
+    />
+    <meta property="og:image" content="https://infographik.co.id/icon.png" />
+    <meta property="og:url" content="https://infographik.co.id" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Infographik.co.id" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@infographik" />
+    <meta
+      name="twitter:title"
+      content="Infographik.co.id - Complete Independence"
+    />
+    <meta
+      name="twitter:description"
+      content="Independent news and analysis from Indonesia. Stay informed with the latest updates on politics, economy, technology, culture, and more."
+    />
+    <meta name="twitter:image" content="https://infographik.co.id/icon.png" />
+
+    <!-- Apple Mobile Web App Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Infographik" />
+
+    <!-- Microsoft Tile Meta Tags -->
+    <meta name="msapplication-TileColor" content="#121212" />
+    <meta name="msapplication-TileImage" content="/path-to-your-ms-icon.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://infographik.co.id" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: #e0e0e0;
+        background-color: #121212;
+      }
+
+      a {
+        text-decoration: none;
+        color: #c7a98e;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-top {
+        padding: 20px 0;
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      :root {
+        --fs-xxl: clamp(1.8rem, 4vw, 2.5rem); /* Hero title */
+        --fs-xl: clamp(1.4rem, 3vw, 2rem); /* Section titles */
+        --fs-lg: clamp(1.1rem, 2vw, 1.5rem); /* News card titles */
+        --fs-md: clamp(0.9rem, 1.5vw, 1.125rem); /* Body text */
+        --fs-sm: clamp(0.8rem, 1vw, 0.875rem); /* Small text */
+      }
+
+      .logo {
+        height: 40px;
+      }
+
+      .social-icons {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+        max-width: fit-content;
+      }
+
+      @media (min-width: 512px) {
+        .social-icons {
+          display: flex;
+          gap: 15px;
+        }
+      }
+
+      .social-icons a {
+        font-size: 24px;
+        color: #aaa;
+        transition: color 0.3s ease;
+        margin: 0;
+      }
+
+      .social-icons a:hover {
+        color: #c7a98e;
+      }
+
+      nav {
+        overflow-x: scroll;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        padding: 15px 0;
+      }
+
+      nav ul li {
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: #e0e0e0;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover,
+      nav ul li a.active {
+        color: #c7a98e;
+      }
+
+      .hero {
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 8px;
+        filter: brightness(0.8);
+      }
+
+      .hero-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 30px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        color: white;
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+      }
+
+      .hero-title {
+        font-size: var(--fs-xxl);
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .headline-date {
+        opacity: 0.8;
+        margin-bottom: 15px;
+        color: #c7a98e;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+        margin: 40px 0;
+      }
+
+      /* ANCHOR: Filter controls */
+      .filter-controls {
+        margin-bottom: 20px;
+        background: #1e1e1e;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .filter-title {
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .filter-button {
+        background: #333;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: #e0e0e0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-button:hover {
+        background: #444;
+      }
+
+      .filter-button.active {
+        background: #c7a98e;
+        color: #121212;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .news-card {
+        background: #1e1e1e;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .news-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .news-content {
+        padding: 20px;
+      }
+
+      .news-category {
+        background-color: #c7a98e;
+        color: #121212;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .news-title {
+        font-size: var(--fs-lg);
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .sidebar {
+        background: #1e1e1e;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .sidebar-title {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #333;
+        color: #fff;
+      }
+
+      .filter-title,
+      .sidebar-title {
+        font-size: var(--fs-xl);
+        margin-bottom: 10px;
+      }
+
+      .popular-news {
+        margin-bottom: 30px;
+      }
+
+      .popular-item {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #333;
+      }
+
+      .popular-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+      }
+
+      .popular-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e0e0e0;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .category {
+        background-color: #333;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+        color: #e0e0e0;
+        cursor: pointer;
+      }
+
+      .category:hover {
+        background-color: #c7a98e;
+        color: #121212;
+      }
+
+      body,
+      p,
+      .news-content p {
+        font-size: var(--fs-md);
+      }
+
+      /* ANCHOR: Search section */
+      .search-section {
+        margin-top: 30px;
+      }
+
+      .search-form {
+        display: flex;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 10px 15px;
+        border: 1px solid #333;
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .search-button {
+        padding: 10px 15px;
+        background-color: #c7a98e;
+        color: #121212;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        padding: 40px 0 20px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        color: #fff;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background-color: #c7a98e;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul li a {
+        color: #aaa;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: #c7a98e;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+        font-size: 14px;
+        color: #aaa;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 295px) {
+        .social-icons {
+          display: none;
+        }
+      }
+
+      .news-category,
+      .popular-title,
+      .category,
+      small,
+      .footer-bottom,
+      .search-input {
+        font-size: var(--fs-sm);
+      }
+
+      nav ul li a {
+        font-size: var(--fs-md);
+      }
+
+      .headline-date {
+        font-size: var(--fs-sm);
+      }
+
+      .footer-column h3 {
+        font-size: var(--fs-lg);
+      }
+
+      .footer-column ul li a {
+        font-size: var(--fs-md);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <img src="./icon.png" alt="Infographik.co.id Logo" class="logo" />
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <nav>
+          <ul id="main-nav">
+            <li><a href="#" class="active" data-category="all">Home</a></li>
+            <li><a href="#" data-category="politics">Politics</a></li>
+            <li><a href="#" data-category="economy">Economy</a></li>
+            <li><a href="#" data-category="technology">Technology</a></li>
+            <li><a href="#" data-category="culture">Culture</a></li>
+            <li><a href="#" data-category="environment">Environment</a></li>
+            <li><a href="#" data-category="world">World</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <img
+          src="https://picsum.photos/1200/500"
+          alt="Featured News"
+          class="hero-image"
+        />
+        <div class="hero-content">
+          <div class="headline-date">August 17, 2023</div>
+          <h1 class="hero-title">
+            Indonesia Celebrates 78 Years of Independence with Nationwide
+            Festivities
+          </h1>
+          <p>
+            President outlines vision for economic growth and social equality in
+            annual address
+          </p>
+        </div>
+      </section>
+
+      <section class="main-content">
+        <div class="news-section">
+          <div class="filter-controls">
+            <h3 class="filter-title">Filter News</h3>
+            <div class="filter-buttons">
+              <button class="filter-button active" data-filter="all">
+                All News
+              </button>
+              <button class="filter-button" data-filter="politics">
+                Politics
+              </button>
+              <button class="filter-button" data-filter="economy">
+                Economy
+              </button>
+              <button class="filter-button" data-filter="technology">
+                Technology
+              </button>
+              <button class="filter-button" data-filter="environment">
+                Environment
+              </button>
+              <button class="filter-button" data-filter="health">Health</button>
+              <button class="filter-button" data-filter="culture">
+                Culture
+              </button>
+            </div>
+          </div>
+
+          <div class="news-grid">
+            <article class="news-card" data-category="economy">
+              <img
+                src="https://picsum.photos/600/400.webp?random=1"
+                alt="Economy"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Economy</span>
+                <h2 class="news-title">
+                  Rupiah Strengthens Against Dollar as Central Bank Holds Rates
+                </h2>
+                <p>
+                  Bank Indonesia maintains benchmark interest rate at 5.75% amid
+                  global economic uncertainty
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="technology">
+              <img
+                src="https://picsum.photos/600/400.webp?random=2"
+                alt="Technology"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Technology</span>
+                <h2 class="news-title">
+                  Indonesian Startups Attract Record Investment Despite Global
+                  Downturn
+                </h2>
+                <p>
+                  Local tech ecosystem shows resilience with $2.1 billion in
+                  funding secured in first half of 2023
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="politics">
+              <img
+                src="https://picsum.photos/600/400.webp?random=3"
+                alt="Politics"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Politics</span>
+                <h2 class="news-title">
+                  Parliament Approves Controversial Labor Reform Bill Amid
+                  Protests
+                </h2>
+                <p>
+                  Opposition leaders criticize rushed process while government
+                  defends measures as necessary for growth
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="environment">
+              <img
+                src="https://picsum.photos/600/400.webp?random=4"
+                alt="Environment"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Environment</span>
+                <h2 class="news-title">
+                  New Study Shows Accelerated Sea Level Rise Threatening Coastal
+                  Communities
+                </h2>
+                <p>
+                  Researchers warn Jakarta could face severe flooding by 2050
+                  without immediate intervention
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="health">
+              <img
+                src="https://picsum.photos/600/400.webp?random=8"
+                alt="Health"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Health</span>
+                <h2 class="news-title">
+                  Ministry Launches New Public Health Initiative in Rural Areas
+                </h2>
+                <p>
+                  Program aims to improve primary care access for underserved
+                  communities across the archipelago
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="culture">
+              <img
+                src="https://picsum.photos/600/400.webp?random=9"
+                alt="Culture"
+                class="news-image"
+              />
+              <div class="news-content">
+                <span class="news-category">Culture</span>
+                <h2 class="news-title">
+                  Traditional Batik Artists Embrace Modern Techniques While
+                  Preserving Heritage
+                </h2>
+                <p>
+                  Young artisans combine ancestral knowledge with contemporary
+                  designs to reach global markets
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="popular-news">
+            <h3 class="sidebar-title">Popular News</h3>
+
+            <div class="popular-item">
+              <img
+                src="https://picsum.photos/160/160.webp?random=5"
+                alt="Business News"
+                class="popular-image"
+              />
+              <div>
+                <h4 class="popular-title">
+                  National Oil Company Announces Major Discovery in Eastern
+                  Waters
+                </h4>
+                <small>2 hours ago</small>
+              </div>
+            </div>
+
+            <div class="popular-item">
+              <img
+                src="https://picsum.photos/160/160.webp?random=6"
+                alt="Sports News"
+                class="popular-image"
+              />
+              <div>
+                <h4 class="popular-title">
+                  Indonesian Athletes Secure Three Gold Medals at Asian Games
+                </h4>
+                <small>5 hours ago</small>
+              </div>
+            </div>
+
+            <div class="popular-item">
+              <img
+                src="https://picsum.photos/160/160.webp?random=7"
+                alt="Health News"
+                class="popular-image"
+              />
+              <div>
+                <h4 class="popular-title">
+                  Health Ministry Launches Nationwide Vaccination Campaign
+                </h4>
+                <small>1 day ago</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="categories-section">
+            <h3 class="sidebar-title">Categories</h3>
+            <div class="categories">
+              <a href="#" class="category" data-filter="politics">Politics</a>
+              <a href="#" class="category" data-filter="economy">Economy</a>
+              <a href="#" class="category" data-filter="technology"
+                >Technology</a
+              >
+              <a href="#" class="category" data-filter="health">Health</a>
+              <a href="#" class="category" data-filter="education">Education</a>
+              <a href="#" class="category" data-filter="environment"
+                >Environment</a
+              >
+              <a href="#" class="category" data-filter="sports">Sports</a>
+              <a href="#" class="category" data-filter="culture">Culture</a>
+            </div>
+          </div>
+
+          <div class="search-section">
+            <h3 class="sidebar-title">Search</h3>
+            <form class="search-form" id="search-form">
+              <input
+                type="text"
+                placeholder="Search news..."
+                class="search-input"
+                id="search-input"
+              />
+              <button type="submit" class="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Editorial Team</a></li>
+              <li><a href="#">Ethics Policy</a></li>
+              <li><a href="#">Ownership Structure</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Subscription</a></li>
+              <li><a href="#">Mobile App</a></li>
+              <li><a href="#">Newsletter</a></li>
+              <li><a href="#">RSS Feeds</a></li>
+              <li><a href="#">Podcasts</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="#">Newsroom</a></li>
+              <li><a href="#">Advertising</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Copyright Notice</a></li>
+              <li><a href="#">GDPR Compliance</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Infographik.co.id - Complete Independence. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const categoryLinks = document.querySelectorAll(".category");
+        const navLinks = document.querySelectorAll("#main-nav a");
+        const newsCards = document.querySelectorAll(".news-card");
+        const searchForm = document.getElementById("search-form");
+        const searchInput = document.getElementById("search-input");
+        const copyright = document.querySelector(".footer-bottom > p");
+
+        copyright.innerHTML = copyright.innerHTML.replace(
+          "2025",
+          new Date().getFullYear()
+        );
+
+        function filterNews(category) {
+          newsCards.forEach((card) => {
+            if (category === "all") {
+              card.style.display = "block";
+            } else if (card.getAttribute("data-category") === category) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        function setActiveButton(buttons, clickedButton) {
+          buttons.forEach((button) => {
+            button.classList.remove("active");
+          });
+          clickedButton.classList.add("active");
+        }
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const category = this.getAttribute("data-filter");
+            filterNews(category);
+            setActiveButton(filterButtons, this);
+
+            // Update nav links to match selected filter
+            navLinks.forEach((link) => {
+              if (link.getAttribute("data-category") === category) {
+                setActiveButton(navLinks, link);
+              }
+            });
+          });
+        });
+
+        categoryLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const category = this.getAttribute("data-filter");
+            filterNews(category);
+
+            filterButtons.forEach((button) => {
+              if (button.getAttribute("data-filter") === category) {
+                setActiveButton(filterButtons, button);
+              }
+            });
+
+            // Update nav links to match selected filter
+            navLinks.forEach((link) => {
+              if (link.getAttribute("data-category") === category) {
+                setActiveButton(navLinks, link);
+              }
+            });
+          });
+        });
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const category = this.getAttribute("data-category");
+            filterNews(category);
+            setActiveButton(navLinks, this);
+
+            filterButtons.forEach((button) => {
+              if (button.getAttribute("data-filter") === category) {
+                setActiveButton(filterButtons, button);
+              }
+            });
+          });
+        });
+
+        searchForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const searchTerm = searchInput.value.toLowerCase();
+
+          if (searchTerm.trim() === "") {
+            // If search is empty, show all news
+            filterNews("all");
+            return;
+          }
+
+          // Show cards that match the search term in title or content
+          newsCards.forEach((card) => {
+            const title = card
+              .querySelector(".news-title")
+              .textContent.toLowerCase();
+            const content = card.querySelector("p").textContent.toLowerCase();
+
+            if (title.includes(searchTerm) || content.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // Reset active buttons when searching
+          filterButtons.forEach((button) => {
+            button.classList.remove("active");
+            if (button.getAttribute("data-filter") === "all") {
+              button.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -20,7 +20,7 @@
     <meta property="og:image" content="./image.png" />
     <meta property="og:url" content="https://pweb.spuun.art/tugas-1" />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="./image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Faiz Muhammad Kautsar - CV" />
     <meta
       name="twitter:description"
@@ -657,8 +657,6 @@
         });
       }
 
-      generateExperiencesHTML(experiences);
-
       let fontSize = 100;
       let originalFontSizes = new Map();
       let isPanelExpanded = false;
@@ -687,6 +685,8 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
+        generateExperiencesHTML(experiences);
+
         document.querySelectorAll("main *").forEach((element) => {
           let originalSize;
           if (element.style.fontSize) {
