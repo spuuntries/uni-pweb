@@ -1,0 +1,86 @@
+{
+    "articles": {
+      "police-shot-3-killed-asd3523": {
+        "id": "police-shot-3-killed-asd3523",
+        "title": "Three Police Officers Killed During Cockfighting Raid in Lampung",
+        "date": "March 17, 2025",
+        "category": "crime",
+        "featuredImage": "./cnn-polri.jpeg",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Three police officers from Way Kanan Police Station were killed during a raid on a cockfighting location on Monday (17/3) in Karang Manik Village, Negara Batin District, Way Kanan Regency, Lampung."
+          },
+          {
+            "type": "paragraph", 
+            "text": "Head of Public Relations at Lampung Police, Commissioner Yuni Iswandari confirmed the incident. Among the three victims, one was the Negara Batin Police Chief IPTU Lusiyanto."
+          },
+          {
+            "type": "paragraph",
+            "text": "The other two victims were Bripka Petrus and Bripda Ghalib. They died from gunshot wounds to the head. According to Yuni, the three were shot by unidentified persons."
+          },
+          {
+            "type": "paragraph",
+            "text": "The raided cockfighting operation was allegedly owned by military personnel. When confirmed, Kapendam II/Sriwijaya Colonel Inf Eko Syah Putra Siregar said they are currently investigating the circulating information."
+          }
+        ]
+      },
+      "ihsg-fall-mulyani-6-pcnt-32423dd": {
+        "id": "ihsg-fall-mulyani-6-pcnt-32423dd", 
+        "title": "Dasco After IHSG Falls 6 Percent: Sri Mulyani Won't Resign - Fiscal Remains Strong",
+        "date": "March 18, 2025",
+        "category": "economy",
+        "featuredImage": "./cnn-dpr.jpeg",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "House of Representatives Deputy Speaker Sufmi Dasco Ahmad assured that Sri Mulyani will not resign from her position as Finance Minister in the Red and White Cabinet."
+          },
+          {
+            "type": "paragraph",
+            "text": "This was in response to questions whether today's IHSG (Jakarta Composite Index) drop was caused by rumors that Sri Mulyani would resign."
+          },
+          {
+            "type": "paragraph",
+            "text": "\"Regarding Mrs. Sri Mulyani, I can assure that Mrs. Sri Mulyani will not resign and our fiscal position remains strong,\" he said at the Indonesia Stock Exchange on Tuesday (18/3)."
+          },
+          {
+            "type": "paragraph", 
+            "text": "The Jakarta Composite Index (IHSG) plunged on Tuesday (18/3) afternoon. As of 11:49 WIB, the index fell 420.97 points or minus 6.58 percent to 6,046."
+          }
+        ]
+      },
+      "dwifungsi-abri-bill-qwjt4": {
+        "id": "dwifungsi-abri-bill-qwjt4", 
+        "title": "Closed TNI Bill Working Committee Meeting Marked by Protests",
+        "date": "March 16, 2025",
+        "category": "politics",
+        "featuredImage": "./kompas-tni.jpeg",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The working committee (panja) meeting discussing the revision of the TNI (Indonesian Military) law at a hotel in Jakarta was marked by protests from the Civil Society Coalition for Security Sector Reform. According to them, the discussion appeared secretive and could potentially restore the military's dual function (dwifungsi ABRI)."
+          },
+          {
+            "type": "paragraph",
+            "text": "On Saturday, March 16, 2025, around 17:50 WIB, three members of the Civil Society Coalition for Security Sector Reform broke through the side door of the main room. They attempted to enter and protest to the TNI Bill working committee members present."
+          },
+          {
+            "type": "paragraph",
+            "text": "However, instead of successfully entering, they were blocked by security protocols, resulting in no interaction with the committee members."
+          },
+          {
+            "type": "paragraph",
+            "text": "KontraS Deputy Coordinator and Head of Legal Division, Andri Yunus, emphasized that the TNI law revision should not be conducted in a closed and seemingly secretive manner."
+          },
+          {
+            "type": "paragraph",
+            "text": "\"We received information that the TNI law revision process was being conducted behind closed doors at the Fairmont Hotel, which we know is very luxurious, and we actually got this information from journalist colleagues,\" said KontraS Deputy Coordinator and Head of Legal Division, Andri Yunus."
+          }
+        ]
+      }
+    },
+    "featuredArticle": "dwifungsi-abri-bill-qwjt4",
+    "popularArticles": ["ihsg-fall-mulyani-6-pcnt-32423dd", "police-shot-3-killed-asd3523"]
+  }
+  

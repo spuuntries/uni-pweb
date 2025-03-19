@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infographik.co.id - Complete Independence</title>
+    <title>Article - Infographik.co.id</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -17,7 +17,6 @@
     <meta name="author" content="Infographik.co.id" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
-    <link rel="icon" type="image/png" href="./iconi.png" />
 
     <!-- Open Graph Meta Tags -->
     <meta
@@ -278,7 +277,6 @@
 
       .news-content {
         padding: 20px;
-        color: #e0e0e0;
       }
 
       .news-category {
@@ -508,6 +506,82 @@
       .footer-column ul li a {
         font-size: var(--fs-md);
       }
+
+      .article-content {
+        max-width: 800px;
+        margin: 40px auto;
+      }
+
+      .article-header {
+        margin-bottom: 30px;
+      }
+
+      .article-title {
+        font-size: var(--fs-xxl);
+        margin: 20px 0;
+      }
+
+      .article-meta {
+        color: #888;
+        margin-bottom: 20px;
+      }
+
+      .article-body {
+        line-height: 1.8;
+      }
+
+      .article-body p {
+        margin-bottom: 20px;
+      }
+
+      .article-body figure {
+        margin: 30px 0;
+      }
+
+      .article-body img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .article-body figcaption {
+        text-align: center;
+        color: #888;
+        margin-top: 10px;
+      }
+
+      .article-tags {
+        margin-top: 30px;
+      }
+
+      .tag {
+        background: #333;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-right: 10px;
+        font-size: var(--fs-sm);
+      }
+
+      .error-message {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .error-message h1 {
+        margin-bottom: 20px;
+      }
+
+      .error-message a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #c7a98e;
+        color: #121212;
+        border-radius: 4px;
+        transition: opacity 0.3s ease;
+      }
+
+      .error-message a:hover {
+        opacity: 0.8;
+      }
     </style>
   </head>
   <body>
@@ -538,323 +612,183 @@
     </header>
 
     <main class="container">
-      <section class="hero"></section>
-
-      <section class="main-content">
-        <div class="news-section">
-          <div class="filter-controls">
-            <h3 class="filter-title">Filter News</h3>
-            <div class="filter-buttons">
-              <button class="filter-button active" data-filter="all">
-                All News
-              </button>
-              <button class="filter-button" data-filter="politics">
-                Politics
-              </button>
-              <button class="filter-button" data-filter="crime">Crime</button>
-              <button class="filter-button" data-filter="economy">
-                Economy
-              </button>
-              <button class="filter-button" data-filter="technology">
-                Technology
-              </button>
-              <button class="filter-button" data-filter="environment">
-                Environment
-              </button>
-              <button class="filter-button" data-filter="health">Health</button>
-              <button class="filter-button" data-filter="culture">
-                Culture
-              </button>
-            </div>
+      <article class="article-content">
+        <div class="article-header">
+          <span class="article-category" id="category"></span>
+          <h1 class="article-title" id="title"></h1>
+          <div class="article-meta">
+            <span id="date"></span>
           </div>
-
-          <div class="news-grid"></div>
         </div>
 
-        <aside class="sidebar">
-          <div class="popular-news">
-            <h3 class="sidebar-title">Popular News</h3>
-          </div>
+        <div class="article-body" id="content">
+          <!-- We'll b um, inserting here lol -->
+        </div>
 
-          <div class="categories-section">
-            <h3 class="sidebar-title">Categories</h3>
-            <div class="categories">
-              <a href="#" class="category" data-filter="politics">Politics</a>
-              <a href="#" class="category" data-filter="economy">Economy</a>
-              <a href="#" class="category" data-filter="technology"
-                >Technology</a
-              >
-              <a href="#" class="category" data-filter="health">Health</a>
-              <a href="#" class="category" data-filter="education">Education</a>
-              <a href="#" class="category" data-filter="environment"
-                >Environment</a
-              >
-              <a href="#" class="category" data-filter="sports">Sports</a>
-              <a href="#" class="category" data-filter="culture">Culture</a>
-            </div>
-          </div>
-
-          <div class="search-section">
-            <h3 class="sidebar-title">Search</h3>
-            <form class="search-form" id="search-form">
-              <input
-                type="text"
-                placeholder="Search news..."
-                class="search-input"
-                id="search-input"
-              />
-              <button type="submit" class="search-button">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </div>
-        </aside>
-      </section>
+        <div class="article-tags" id="tags">
+          <!-- Moar inserts -->
+        </div>
+      </article>
     </main>
 
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>About Us</h3>
-            <ul>
-              <li><a href="#">Our Story</a></li>
-              <li><a href="#">Editorial Team</a></li>
-              <li><a href="#">Ethics Policy</a></li>
-              <li><a href="#">Ownership Structure</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Services</h3>
-            <ul>
-              <li><a href="#">Subscription</a></li>
-              <li><a href="#">Mobile App</a></li>
-              <li><a href="#">Newsletter</a></li>
-              <li><a href="#">RSS Feeds</a></li>
-              <li><a href="#">Podcasts</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Contact</h3>
-            <ul>
-              <li><a href="#">Newsroom</a></li>
-              <li><a href="#">Advertising</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Legal</h3>
-            <ul>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-              <li><a href="#">Copyright Notice</a></li>
-              <li><a href="#">GDPR Compliance</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2025 Infographik.co.id - Complete Independence. All rights
-            reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-
     <script>
-      document.addEventListener("DOMContentLoaded", async function () {
-        async function updateHeroSection(data) {
-          const featuredArticle = data.articles[data.featuredArticle];
-          const hero = document.querySelector(".hero");
+      async function loadArticle() {
+        function setupNavigation() {
+          const navLinks = document.querySelectorAll("#main-nav a");
 
-          hero.innerHTML = `
-    <a href="news.html?id=${featuredArticle.id}">
-    <img src="${featuredArticle.featuredImage}" alt="${featuredArticle.title}" class="hero-image" />
-    <div class="hero-content">
-      <div class="headline-date">${featuredArticle.date}</div>
-      <h1 class="hero-title">${featuredArticle.title}</h1>
-      <p>${featuredArticle.excerpt || featuredArticle.content[0].text.substring(0, 50)}...</p>
-    </div>
-    </a>
-  `;
+          navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const category = link.getAttribute("data-category");
+
+              if (category === "all") {
+                window.location.href = "index.html";
+                return;
+              }
+
+              window.location.href = `index.html?category=${category}`;
+            });
+
+            link.classList.remove("active");
+
+            // If we're on an article page, highlight the matching category
+            const articleCategory = document
+              .getElementById("category")
+              ?.textContent.toLowerCase();
+            if (
+              articleCategory &&
+              link.getAttribute("data-category") === articleCategory
+            ) {
+              link.classList.add("active");
+            }
+          });
         }
 
-        function updatePopularNews(data) {
-          const popularNews = document.querySelector(".popular-news");
-          const popularHTML = data.popularArticles
-            .map((id) => {
-              const article = data.articles[id];
-              return `
-      <div class="popular-item">
-        <img src="${article.featuredImage}" alt="${article.title}" class="popular-image" />
-        <div>
-          <h4 class="popular-title">${article.title}</h4>
-          <small>${article.date}</small>
-        </div>
-      </div>
-    `;
-            })
-            .join("");
+        // Get article ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get("id");
 
-          popularNews.innerHTML = popularHTML;
+        if (!articleId) {
+          showError("No article ID specified");
+          return;
         }
 
         try {
+          // Fetch article data
           const response = await fetch("./news.json");
           const data = await response.json();
+          const article = data.articles[articleId];
 
-          // Generate news cards
-          const newsGrid = document.querySelector(".news-grid");
-          newsGrid.innerHTML = ""; // Ensure sane
-
-          Object.values(data.articles).forEach((article) => {
-            const card = `
-          <article class="news-card" data-category="${article.category}">
-            <a href="news.html?id=${article.id}">
-              <img src="${article.featuredImage}" alt="${article.title}" class="news-image" />
-              <div class="news-content">
-                <span class="news-category">${article.category[0].toUpperCase() + article.category.slice(1)}</span>
-                <h2 class="news-title">${article.title}</h2>
-                <p>${article.excerpt || article.content[0].text.substring(0, 150)}...</p>
-              </div>
-            </a>
-          </article>
-        `;
-            newsGrid.innerHTML += card;
-          });
-
-          updateHeroSection(data);
-          updatePopularNews(data);
-        } catch (error) {
-          console.error("Error loading news:", error);
-          document.querySelector(".news-grid").innerHTML =
-            "<p>Error loading news articles</p>";
-        }
-
-        const filterButtons = document.querySelectorAll(".filter-button");
-        const categoryLinks = document.querySelectorAll(".category");
-        const navLinks = document.querySelectorAll("#main-nav a");
-        const newsCards = document.querySelectorAll(".news-card");
-        const searchForm = document.getElementById("search-form");
-        const searchInput = document.getElementById("search-input");
-        const copyright = document.querySelector(".footer-bottom > p");
-
-        copyright.innerHTML = copyright.innerHTML.replace(
-          "2025",
-          new Date().getFullYear()
-        );
-
-        function filterNews(category) {
-          newsCards.forEach((card) => {
-            if (category === "all") {
-              card.style.display = "block";
-            } else if (card.getAttribute("data-category") === category) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        }
-
-        function setActiveButton(buttons, clickedButton) {
-          buttons.forEach((button) => {
-            button.classList.remove("active");
-          });
-          clickedButton.classList.add("active");
-        }
-
-        filterButtons.forEach((button) => {
-          button.addEventListener("click", function () {
-            const category = this.getAttribute("data-filter");
-            filterNews(category);
-            setActiveButton(filterButtons, this);
-
-            // Update nav links to match selected filter
-            navLinks.forEach((link) => {
-              if (link.getAttribute("data-category") === category) {
-                setActiveButton(navLinks, link);
-              }
-            });
-          });
-        });
-
-        categoryLinks.forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const category = this.getAttribute("data-filter");
-            filterNews(category);
-
-            filterButtons.forEach((button) => {
-              if (button.getAttribute("data-filter") === category) {
-                setActiveButton(filterButtons, button);
-              }
-            });
-
-            // Update nav links to match selected filter
-            navLinks.forEach((link) => {
-              if (link.getAttribute("data-category") === category) {
-                setActiveButton(navLinks, link);
-              }
-            });
-          });
-        });
-
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const category = this.getAttribute("data-category");
-            filterNews(category);
-            setActiveButton(navLinks, this);
-
-            filterButtons.forEach((button) => {
-              if (button.getAttribute("data-filter") === category) {
-                setActiveButton(filterButtons, button);
-              }
-            });
-          });
-        });
-
-        searchForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const searchTerm = searchInput.value.toLowerCase();
-
-          if (searchTerm.trim() === "") {
-            // If search is empty, show all news
-            filterNews("all");
-            return;
+          if (!article) {
+            throw new Error("Article not found");
           }
 
-          // Show cards that match the search term in title or content
-          newsCards.forEach((card) => {
-            const title = card
-              .querySelector(".news-title")
-              .textContent.toLowerCase();
-            const content = card.querySelector("p").textContent.toLowerCase();
+          document.title = `${article.title} - Infographik.co.id`;
+          updateMetaTags(article);
 
-            if (title.includes(searchTerm) || content.includes(searchTerm)) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
+          document.getElementById("category").textContent =
+            article.category[0].toUpperCase() + article.category.slice(1);
+          document.getElementById("title").textContent = article.title;
+          document.getElementById("date").textContent = formatDate(
+            article.date
+          );
+
+          const contentDiv = document.getElementById("content");
+
+          if (article.featuredImage) {
+            const figure = createFigure(article.featuredImage, article.title);
+            contentDiv.appendChild(figure);
+          }
+
+          article.content.forEach((block) => {
+            const element = renderContentBlock(block);
+            if (element) contentDiv.appendChild(element);
           });
 
-          // Reset active buttons when searching
-          filterButtons.forEach((button) => {
-            button.classList.remove("active");
-            if (button.getAttribute("data-filter") === "all") {
-              button.classList.add("active");
-            }
-          });
+          if (article.tags) {
+            const tagsDiv = document.getElementById("tags");
+            article.tags.forEach((tag) => {
+              const tagSpan = document.createElement("span");
+              tagSpan.className = "tag";
+              tagSpan.textContent = tag;
+              tagsDiv.appendChild(tagSpan);
+            });
+          }
+        } catch (error) {
+          console.error("Error loading article:", error);
+          showError("Article not found");
+        }
+
+        setupNavigation();
+      }
+
+      function updateMetaTags(article) {
+        const metaTags = {
+          "og:title": article.title,
+          "og:description": article.content[0].text,
+          "og:image": article.featuredImage,
+          "twitter:title": article.title,
+          "twitter:description": article.content[0].text,
+          "twitter:image": article.featuredImage,
+        };
+
+        Object.entries(metaTags).forEach(([property, content]) => {
+          const meta =
+            document.querySelector(`meta[property="${property}"]`) ||
+            document.querySelector(`meta[name="${property}"]`);
+          if (meta) meta.setAttribute("content", content);
         });
-      });
+      }
+
+      function formatDate(dateString) {
+        return new Date(dateString).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      function createFigure(imageUrl, caption) {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = caption;
+
+        const figcaption = document.createElement("figcaption");
+        figcaption.textContent = caption;
+
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+        return figure;
+      }
+
+      function renderContentBlock(block) {
+        switch (block.type) {
+          case "paragraph":
+            const p = document.createElement("p");
+            p.textContent = block.text;
+            return p;
+
+          case "image":
+            return createFigure(block.url, block.caption);
+
+          default:
+            console.warn(`Unknown content block type: ${block.type}`);
+            return null;
+        }
+      }
+
+      function showError(message) {
+        document.querySelector("main").innerHTML = `
+    <div class="error-message">
+      <h1>404: ${message}</h1>
+      <a href="index.html">Return to Homepage</a>
+    </div>
+  `;
+      }
+
+      // Initialize when DOM is ready
+      document.addEventListener("DOMContentLoaded", loadArticle);
     </script>
   </body>
 </html>
