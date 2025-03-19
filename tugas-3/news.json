@@ -78,9 +78,91 @@
             "text": "\"We received information that the TNI law revision process was being conducted behind closed doors at the Fairmont Hotel, which we know is very luxurious, and we actually got this information from journalist colleagues,\" said KontraS Deputy Coordinator and Head of Legal Division, Andri Yunus."
           }
         ]
+      },
+      "sukatani-rejects-police-offer-xy123": {
+        "id": "sukatani-rejects-police-offer-xy123",
+        "title": "Band Sukatani: We Firmly Reject Offer to Become Police Ambassador",
+        "date": "March 1, 2025",
+        "category": "culture",
+        "featuredImage": "./cnn-sukatani.jpeg",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Band Sukatani firmly rejected the offer from National Police Chief General Listyo Sigit Prabowo to become Police Ambassador. The rejection was conveyed after they apologized and removed their song 'Bayar Bayar Bayar' (Pay Pay Pay)."
+          },
+          {
+            "type": "paragraph",
+            "text": "In their social media post, Sukatani also thanked the public for their support and solidarity following their viral apology video regarding their song 'Bayar Bayar Bayar' to the National Police."
+          },
+          {
+            "type": "paragraph",
+            "text": "\"Regarding the offer to become Police Ambassador from the National Police Chief, we firmly reject the offer to become Police Ambassador,\" stated Band Sukatani in their official statement on Saturday (1/3)."
+          },
+          {
+            "type": "paragraph",
+            "text": "\"The support and solidarity from friends have made us stronger and unwilling to give up,\" they explained."
+          },
+          {
+            "type": "paragraph",
+            "text": "After uploading the apology video, they said they received many offers, especially for Twister Angel who was fired from his job. These offers, they said, even came from the National Police Chief."
+          },
+          {
+            "type": "paragraph",
+            "text": "However, Band Sukatani emphasized that they will not accept the offer and will not become Police Ambassador."
+          },
+          {
+            "type": "paragraph",
+            "text": "National Police Chief General Listyo Sigit Prabowo had previously asked Band Sukatani to become Police Ambassador to provide criticism and corrections to the Police Corps."
+          },
+          {
+            "type": "paragraph",
+            "text": "Sigit emphasized that the Police Corps is currently improving and not being anti-criticism. He ensured that all his personnel accept and are open to various suggestions and input."
+          }
+        ]
+      },
+      "microsoft-quantum-computing-debate-xyz789": {
+        "id": "microsoft-quantum-computing-debate-xyz789",
+        "title": "Microsoft Quantum Computing Claim Still Lacks Evidence: Physicists Are Dubious",
+        "date": "March 18, 2025",
+        "category": "technology",
+        "featuredImage": "./microsoft-quantum.webp",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Some attendees of a packed presentation were curious about the prospect of the first 'topological' qubits, but left with questions unanswered."
+          },
+          {
+            "type": "paragraph",
+            "text": "A Microsoft researcher today presented results behind the company's controversial claim last month to have created the first 'topological' qubits — a long-sought goal of quantum computing."
+          },
+          {
+            "type": "paragraph",
+            "text": "In front of a packed room at a meeting of the American Physical Society (APS), Chetan Nayak, a theoretical physicist leading Microsoft's quantum computing effort in Redmond, Washington, explained how the company is developing topological qubits, which would be the building blocks for a noise-resistant quantum computer."
+          },
+          {
+            "type": "quote",
+            "text": "\"It's a hard problem,\" says Ali Yazdani, an experimental physicist at Princeton University in New Jersey. To anyone trying to make topological qubits, he says, \"good luck\"."
+          },
+          {
+            "type": "paragraph",
+            "text": "Daniel Loss, a theorist at the University of Basel in Switzerland, called it \"a beautiful talk\" but took issue with the strong claims and relative lack of evidence. \"People have gone overboard, and the community is not happy. They overdid it,\" he says."
+          },
+          {
+            "type": "paragraph",
+            "text": "Nayak acknowledges the criticism: \"I never felt like there would be one moment when everyone is fully convinced,\" he says, adding that Microsoft is confident in its understanding of the devices, and that other researchers are excited by the work."
+          },
+          {
+            "type": "paragraph",
+            "text": "The controversy deepened when physicist Henry Legg of the University of St Andrews, UK, posted a report questioning Microsoft's verification methods. Legg's analysis found inconsistencies in the company's topological gap protocol (TGP), a key test for detecting Majoranas in its devices."
+          },
+          {
+            "type": "paragraph",
+            "text": "Despite the ongoing debate, researchers note that the scientific review process is working as intended. \"Somebody takes a look at what someone else was doing, they poke holes,\" says Jason Alicea, a theorist at the California Institute of Technology. \"This is what scientists should be doing.\""
+          }
+        ]
       }
     },
     "featuredArticle": "dwifungsi-abri-bill-qwjt4",
-    "popularArticles": ["ihsg-fall-mulyani-6-pcnt-32423dd", "police-shot-3-killed-asd3523"]
+    "popularArticles": ["dwifungsi-abri-bill-qwjt4", "ihsg-fall-mulyani-6-pcnt-32423dd", "police-shot-3-killed-asd3523"]
   }
   
