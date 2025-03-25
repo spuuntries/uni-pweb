@@ -1,0 +1,40 @@
+{
+  "menus": [
+    {
+      "title": "Miku Ramen",
+      "image": "ramenv2.png",
+      "single": false,
+      "price": "20.00"
+    },
+    {
+      "title": "Smuushi",
+      "image": "smuush.png",
+      "single": false,
+      "price": "250.00"
+    },
+    {
+      "title": "150% Steak",
+      "image": "cowstek.png",
+      "single": false,
+      "price": "125.00"
+    },
+    {
+      "title": "Sneg",
+      "image": "sneg.png",
+      "single": false,
+      "price": "30.00"
+    },
+    {
+      "title": "Glacier in a mug",
+      "image": "glacier.png",
+      "single": true,
+      "price": "12.50"
+    },
+    {
+      "title": "Neil Degrassi",
+      "image": "degrassi.png",
+      "single": true,
+      "price": "20.00"
+    }
+  ]
+}

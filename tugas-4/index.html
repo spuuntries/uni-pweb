@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siklop - Menu Resto</title>
+    <link rel="icon" type="image/png" href="./cowlogo.png" />
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --background-color: #ecf0f1;
+        --card-background: #ffffff;
+        --text-color: #34495e;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        font-family: "Courier New", Courier, monospace;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: 18px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1em;
+      }
+
+      .main-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
+        box-sizing: border-box;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .menu-container {
+        overflow-y: auto;
+        position: relative;
+        min-height: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .menu-page {
+        display: none;
+        height: 100%;
+        flex-direction: column;
+        gap: 20px;
+        animation: fadeIn 0.3s ease-in-out;
+        flex: 1;
+      }
+
+      .menu-page.active {
+        display: flex;
+      }
+
+      .menu-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        margin: 0;
+        width: 60%;
+        max-width: 1000px;
+      }
+
+      .menu-item:first-child {
+        align-self: flex-start;
+      }
+
+      .menu-item:last-child {
+        align-self: flex-end;
+      }
+
+      .menu-page.single-item .menu-item {
+        align-self: center;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .menu-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .menu-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        margin: 0;
+        font-size: clamp(24px, 3vw, 32px);
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0; /* Prevent pagination from shrinking */
+        margin-top: auto;
+        padding: 15px 0;
+        gap: 1em;
+        background-color: var(--background-color);
+        position: sticky;
+        bottom: 0;
+      }
+
+      .page-button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        z-index: 101;
+      }
+
+      .page-button:hover:not(.disabled) {
+        background-color: var(--accent-color);
+      }
+
+      .page-button.disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
+      }
+
+      .page-indicator {
+        padding: 15px 25px;
+        background-color: var(--card-background);
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 18px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .price-tag {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.2em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .price-tag::before {
+        content: "$";
+        font-size: 0.8em;
+        margin-right: 2px;
+      }
+
+      .menu-item:hover .price-tag {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+      }
+
+      .menu-item:hover .menu-title {
+        transform: scale(1.2);
+      }
+
+      .cart-panel {
+        position: fixed;
+        right: -350px;
+        top: 0;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+
+      .cart-panel.active {
+        right: 0;
+      }
+
+      .cart-icon {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--accent-color);
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cart-item-remove {
+        color: var(--accent-color);
+        cursor: pointer;
+      }
+
+      .cart-total {
+        margin-top: 20px;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      }
+
+      .checkout-btn {
+        width: 100%;
+        padding: 10px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .checkout-btn:hover {
+        background: var(--accent-color);
+      }
+
+      .add-to-cart-btn {
+        position: absolute;
+        top: 55px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 0px 0px 8px 8px;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+
+      .add-to-cart-btn:hover {
+        background: var(--accent-color);
+        transform: scale(1.045);
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 426px) {
+        .menu-item {
+          min-height: 250px;
+          width: 100%;
+        }
+
+        .main-container {
+          padding: 0 1rem;
+          padding-bottom: 90px;
+        }
+
+        .pagination {
+          gap: 15px;
+        }
+
+        .page-button,
+        .page-indicator {
+          padding: 12px 20px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="cowlogo.png"
+        style="width: 50px; padding-bottom: 0; padding-top: 0.5em"
+      />
+    </header>
+
+    <main class="main-container">
+      <section class="menu-container" id="menuContainer" aria-live="polite">
+        <!-- gona insert stuf here -->
+      </section>
+
+      <nav class="pagination" aria-label="Menu navigation">
+        <button
+          class="page-button"
+          id="prevButton"
+          onclick="changePage(-1)"
+          aria-label="Previous page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path
+                d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"
+              />
+              <path
+                fill="currentColor"
+                d="M12.06 5.94a1.5 1.5 0 0 1 0 2.12L8.122 12l3.94 3.94a1.5 1.5 0 0 1-2.122 2.12l-5-5a1.5 1.5 0 0 1 0-2.12l5-5a1.5 1.5 0 0 1 2.122 0Zm6 0a1.5 1.5 0 0 1 0 2.12L14.122 12l3.94 3.94a1.5 1.5 0 0 1-2.122 2.12l-5-5a1.5 1.5 0 0 1 0-2.12l5-5a1.5 1.5 0 0 1 2.122 0Z"
+              />
+            </g>
+          </svg>
+        </button>
+        <div
+          class="page-indicator"
+          id="pageIndicator"
+          role="status"
+          aria-live="polite"
+        >
+          1 / 1
+        </div>
+        <button
+          class="page-button"
+          id="nextButton"
+          onclick="changePage(1)"
+          aria-label="Next page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path
+                d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"
+              />
+              <path
+                fill="currentColor"
+                d="M5.94 5.94a1.5 1.5 0 0 1 2.12 0l5 5a1.5 1.5 0 0 1 0 2.12l-5 5a1.5 1.5 0 0 1-2.12-2.12L9.878 12l-3.94-3.94a1.5 1.5 0 0 1 0-2.12Zm6 0a1.5 1.5 0 0 1 2.12 0l5 5a1.5 1.5 0 0 1 0 2.12l-5 5a1.5 1.5 0 0 1-2.12-2.12L15.878 12l-3.94-3.94a1.5 1.5 0 0 1 0-2.12Z"
+              />
+            </g>
+          </svg>
+        </button>
+      </nav>
+      <div id="cartPanel" class="cart-panel">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+      </div>
+
+      <div id="cartIcon" class="cart-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <g fill="none">
+            <path
+              d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
+            />
+            <path
+              fill="currentColor"
+              d="M7.5 19a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3m10 0a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3M3 2c1.726 0 3.023 1.283 3.145 3h13.657a2 2 0 0 1 1.968 2.358l-1.637 9A2 2 0 0 1 18.165 18H6.931a2 2 0 0 1-1.995-1.858l-.8-11.213C4.09 4.31 3.564 4 3 4a1 1 0 0 1 0-2"
+            />
+          </g>
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </div>
+    </main>
+
+    <script>
+      let currentPage = 0;
+      let menuData = [];
+      let cart = [];
+      const menusPerPage = 2;
+
+      function updatePagination() {
+        const totalPages = document.querySelectorAll(".menu-page").length;
+        const pageIndicator = document.getElementById("pageIndicator");
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+
+        pageIndicator.textContent = `${currentPage + 1} / ${totalPages}`;
+        prevButton.disabled = currentPage === 0;
+        nextButton.disabled = currentPage === totalPages - 1;
+
+        if (prevButton.disabled) prevButton.classList.add("disabled");
+        else prevButton.classList.remove("disabled");
+
+        if (nextButton.disabled) nextButton.classList.add("disabled");
+        else nextButton.classList.remove("disabled");
+      }
+
+      function changePage(direction) {
+        const menuPages = document.querySelectorAll(".menu-page");
+        const totalPages = menuPages.length;
+
+        menuPages[currentPage].classList.remove("active");
+        currentPage = (currentPage + direction + totalPages) % totalPages;
+        menuPages[currentPage].classList.add("active");
+
+        updatePagination();
+      }
+
+      async function fetchMenus() {
+        try {
+          const response = await fetch("menu.json");
+          const data = await response.json();
+          menuData = data.menus;
+          generateMenus();
+        } catch (error) {
+          console.error("Error fetching menus:", error);
+        }
+      }
+
+      function generateMenus() {
+        const menuContainer = document.getElementById("menuContainer");
+        let pages = [];
+        let currentPageMenus = [];
+
+        // Group menus into pages based on single property
+        menuData.forEach((menu) => {
+          if (menu.single || currentPageMenus.length >= menusPerPage) {
+            if (currentPageMenus.length > 0) {
+              pages.push([...currentPageMenus]);
+              currentPageMenus = [];
+            }
+            if (menu.single) {
+              pages.push([menu]);
+            } else {
+              currentPageMenus.push(menu);
+            }
+          } else {
+            currentPageMenus.push(menu);
+          }
+        });
+
+        // Add any remaining menus
+        if (currentPageMenus.length > 0) {
+          pages.push(currentPageMenus);
+        }
+
+        menuContainer.innerHTML = "";
+
+        pages.forEach((pageMenus, i) => {
+          const isSingleItem = pageMenus.length === 1 ? "single-item" : "";
+
+          const pageHTML = `
+    <article class="menu-page ${i === 0 ? "active" : ""} ${isSingleItem}" id="page${i}">
+      ${pageMenus
+        .map(
+          (menu) => `
+            <figure class="menu-item">
+      <div class="price-tag">${menu.price}</div>
+      <button class="add-to-cart-btn" onclick='addToCart(${JSON.stringify(menu)})'>
+        Add to Cart
+      </button>
+      <img src="${menu.image}" 
+           alt="${menu.title}" 
+           class="menu-image"
+           onload="this.style.height = 'auto'">
+      <figcaption class="menu-title">${menu.title}</figcaption>
+    </figure>
+          `
+        )
+        .join("")}
+    </article>
+  `;
+          menuContainer.innerHTML += pageHTML;
+        });
+
+        updatePagination();
+      }
+
+      fetchMenus();
+
+      function initializeCart() {
+        const cartIcon = document.getElementById("cartIcon");
+        const cartPanel = document.getElementById("cartPanel");
+
+        cartIcon.addEventListener("click", () => {
+          cartPanel.classList.toggle("active");
+        });
+      }
+
+      function addToCart(menuItem) {
+        const existingItem = cart.find((item) => item.title === menuItem.title);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            title: menuItem.title,
+            price: parseFloat(menuItem.price),
+            quantity: 1,
+          });
+        }
+
+        updateCartDisplay();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartDisplay();
+      }
+
+      function updateCartDisplay() {
+        const cartItems = document.getElementById("cartItems");
+        const cartCount = document.getElementById("cartCount");
+        const cartTotal = document.getElementById("cartTotal");
+
+        cartCount.textContent = cart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+
+        cartItems.innerHTML = cart
+          .map(
+            (item, index) => `
+    <div class="cart-item">
+      <span>${item.title} (${item.quantity}x)</span>
+      <span>$${(item.price * item.quantity).toFixed(2)}
+        <span class="cart-item-remove" onclick="removeFromCart(${index})">❌</span>
+      </span>
+    </div>
+  `
+          )
+          .join("");
+
+        const total = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+      }
+
+      document.addEventListener("DOMContentLoaded", initializeCart);
+    </script>
+  </body>
+</html>

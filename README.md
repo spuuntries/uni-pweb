@@ -21,4 +21,8 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
         <td>Tugas 3 - News Site</td>
         <td><a href="https://pweb.spuun.art/tugas-3/">/tugas-3/</a></td>
     </tr>
+    <tr>
+        <td>Tugas 4 - HTML5 Menu</td>
+        <td><a href="https://pweb.spuun.art/tugas-4/">/tugas-4/</a></td>
+    </tr>
 </table>
