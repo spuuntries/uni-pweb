@@ -1,0 +1,1281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tedina & Wowo - Wedding Invitation</title>
+    <meta
+      name="description"
+      content="Join us for the wedding of Tedina & Wowo on September 11, 2025 in St Thomas, USVI"
+    />
+    <meta property="og:title" content="Tedina & Wowo - Wedding Invitation" />
+    <meta
+      property="og:description"
+      content="We're getting married! Join us for our special day on September 11, 2025."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1523438885200-e635ba2c371e"
+    />
+    <meta property="og:type" content="website" />
+
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/color/48/000000/wedding-rings.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #ff9a8d;
+        --primary-dark: #ff7b6b;
+        --text-color: #5a5a5a;
+        --text-dark: #333;
+        --text-light: #666;
+        --background-light: #fff9f9;
+        --background: #fff;
+        --background-cream: #fff1f0;
+        --border-radius: 20px;
+        --border-radius-sm: 15px;
+        --border-radius-lg: 30px;
+        --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        --box-shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s ease;
+        --font-primary: "Poppins", sans-serif;
+        --font-display: "Playfair Display", serif;
+        --space-sm: 10px;
+        --space-md: 20px;
+        --space-lg: 30px;
+        --space-xl: 40px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        background-color: var(--background-light);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Floating Navbar */
+      .nav-container {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: 90%;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(35, 35, 35, 0.85);
+        padding: 12px 24px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #ffffff;
+        margin: 0 8px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 10px 16px;
+        border-radius: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        outline: none;
+      }
+
+      nav a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      nav a i {
+        margin-right: 6px;
+        font-size: 16px;
+      }
+
+      section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-xl) var(--space-md);
+        scroll-margin-top: 80px;
+      }
+
+      .hero {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+          url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e")
+            center/cover no-repeat;
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        color: var(--primary-dark);
+        line-height: 1.3;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: var(--space-md);
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: var(--space-lg);
+        position: relative;
+        display: inline-block;
+      }
+
+      h2:after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        border-radius: 10px;
+      }
+
+      .names {
+        font-size: 4rem;
+        font-weight: 700;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 10px;
+      }
+
+      .date {
+        font-size: 1.5rem;
+        margin: var(--space-md) 0;
+        color: var(--text-dark);
+      }
+
+      .details {
+        background-color: var(--background);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        width: 100%;
+        padding: var(--space-xl);
+        margin: var(--space-md) 0;
+        transition: var(--transition);
+      }
+
+      .details:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-hover);
+      }
+
+      .details p {
+        line-height: 1.8;
+        margin-bottom: 15px;
+        color: var(--text-light);
+      }
+
+      .our-story {
+        background-color: var(--background-cream);
+      }
+
+      .event-details,
+      .registry,
+      .accommodations {
+        background-color: var(--background);
+      }
+
+      .rsvp,
+      .faq {
+        background-color: var(--background-cream);
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 14px 30px;
+        border-radius: var(--border-radius-lg);
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 25px;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(255, 123, 107, 0.3);
+        letter-spacing: 0.5px;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-primary);
+        font-size: 16px;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 123, 107, 0.4);
+        outline: none;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: var(--space-lg) 0;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .divider-line {
+        flex-grow: 1;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
+        border-radius: 2px;
+      }
+
+      .heart {
+        font-size: 1.8rem;
+        margin: 0 var(--space-md);
+        color: var(--primary-dark);
+      }
+
+      /* Event info cards */
+      .info-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-md);
+        width: 100%;
+        margin-top: var(--space-md);
+      }
+
+      .info-card {
+        flex: 0 1 300px;
+        background-color: var(--background);
+        border-radius: var(--border-radius);
+        padding: 25px;
+        text-align: center;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-hover);
+      }
+
+      .info-card i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .info-card h3 {
+        font-size: 1.2rem;
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+      }
+
+      /* Gallery */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        width: 100%;
+        margin: var(--space-lg) 0;
+      }
+
+      .gallery-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      .gallery-img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Countdown */
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-md);
+        margin: var(--space-lg) 0;
+      }
+
+      .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 15px;
+        width: 80px;
+        box-shadow: var(--box-shadow);
+      }
+
+      .countdown-number {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+
+      .countdown-label {
+        font-size: 0.85rem;
+        color: #888;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: var(--space-md);
+        position: relative;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 15px;
+        border-radius: var(--border-radius-sm);
+        border: 1px solid #ddd;
+        font-family: var(--font-primary);
+        font-size: 16px;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(255, 154, 141, 0.2);
+      }
+
+      .error-message {
+        color: #e74c3c;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+      }
+
+      .success-message {
+        background-color: #d4edda;
+        color: #155724;
+        padding: var(--space-md);
+        border-radius: var(--border-radius-sm);
+        text-align: center;
+        margin-top: var(--space-md);
+      }
+
+      .form-group.error .form-control {
+        border-color: #e74c3c;
+      }
+
+      /* Map styles */
+      .map-container {
+        width: 100%;
+        margin-top: var(--space-lg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+      }
+
+      /* Accordion for FAQs */
+      .accordion {
+        width: 100%;
+        margin-top: var(--space-md);
+      }
+
+      .accordion-item {
+        margin-bottom: 10px;
+        border-radius: var(--border-radius-sm);
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      }
+
+      .accordion-toggle {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+        background: white;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        font-family: var(--font-primary);
+        font-weight: 500;
+        font-size: 1rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .accordion-toggle:after {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        transition: var(--transition);
+      }
+
+      .accordion-toggle.active:after {
+        transform: rotate(180deg);
+      }
+
+      .accordion-toggle:hover,
+      .accordion-toggle:focus {
+        background-color: #f9f9f9;
+        outline: none;
+      }
+
+      .accordion-content {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+        background-color: white;
+      }
+
+      .accordion-content.active {
+        max-height: 200px;
+        padding: 15px 20px;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: var(--space-lg) var(--space-md);
+        background-color: var(--background);
+        color: var(--text-light);
+      }
+
+      footer p {
+        margin-bottom: var(--space-sm);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: var(--space-md);
+      }
+
+      .social-links a {
+        color: var(--primary-dark);
+        font-size: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        color: var(--primary-color);
+      }
+
+      @media (max-width: 768px) {
+        nav a span {
+          display: none;
+        }
+
+        nav a i {
+          margin-right: 0;
+          font-size: 18px;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .names {
+          font-size: 3rem;
+        }
+
+        .details {
+          padding: 25px;
+        }
+
+        .countdown-item {
+          width: 65px;
+          padding: 10px;
+        }
+
+        .accordion-content.active {
+          max-height: 300px;
+        }
+      }
+
+      @media (max-width: 512px) {
+        nav {
+          min-width: 316px;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav>
+        <a href="#home" class="active" aria-label="Home section"
+          ><i class="fas fa-home"></i><span>Home</span></a
+        >
+        <a href="#our-story" aria-label="Our Story section"
+          ><i class="fas fa-heart"></i><span>Our Story</span></a
+        >
+        <a href="#event-details" aria-label="Event Details section"
+          ><i class="fas fa-calendar-alt"></i><span>Details</span></a
+        >
+        <a href="#accommodations" aria-label="Accommodations section"
+          ><i class="fas fa-hotel"></i><span>Stay</span></a
+        >
+        <a href="#rsvp" aria-label="RSVP section"
+          ><i class="fas fa-envelope"></i><span>RSVP</span></a
+        >
+        <a href="#registry" aria-label="Registry section"
+          ><i class="fas fa-gift"></i><span>Registry</span></a
+        >
+        <a href="#faq" aria-label="FAQ section"
+          ><i class="fas fa-question-circle"></i><span>FAQ</span></a
+        >
+      </nav>
+    </div>
+
+    <section id="home" class="hero">
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <h1>We're Getting Married</h1>
+      </div>
+      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <p class="names">Tedina & Wowo</p>
+        <p class="date">September 24, 2023</p>
+      </div>
+
+      <div
+        class="countdown"
+        data-aos="zoom-in"
+        data-aos-duration="800"
+        data-aos-delay="500"
+      >
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <div
+        class="divider"
+        data-aos="zoom-in"
+        data-aos-duration="800"
+        data-aos-delay="600"
+      >
+        <div class="divider-line"></div>
+        <span class="heart">♥</span>
+        <div class="divider-line"></div>
+      </div>
+      <a
+        href="#rsvp"
+        class="btn"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="900"
+        >RSVP Now</a
+      >
+    </section>
+
+    <section id="our-story" class="our-story">
+      <div class="details" data-aos="fade-right" data-aos-duration="1000">
+        <h2>Our Story</h2>
+        <p>
+          We met at a coffee shop on a rainy Sunday afternoon in fall 2018. Tedi
+          was reading a book Wowo had just finished, and she couldn't help but
+          start a conversation. The rest, as they say, is history.
+        </p>
+        <p>
+          After 3 wonderful years together, Tedi proposed during a sunset picnic
+          at the beach where we had our first date. We're excited to begin the
+          next chapter of our lives and can't wait to celebrate with our closest
+          friends and family.
+        </p>
+
+        <div
+          class="gallery"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486"
+            class="gallery-img"
+            alt="Two chairs for Tedi and Wowo"
+            loading="lazy"
+            width="300"
+            height="200"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1649289660905-5ca136d6e3ce"
+            class="gallery-img"
+            alt="Tedu and Wowo holding hands in the park"
+            loading="lazy"
+            width="300"
+            height="200"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1537633552985-df8429e8048b"
+            class="gallery-img"
+            alt="Tedi and Wowo's engagement photo"
+            loading="lazy"
+            width="300"
+            height="200"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="event-details" class="event-details">
+      <div class="details" data-aos="fade-left" data-aos-duration="1000">
+        <h2>Event Details</h2>
+
+        <div class="info-cards">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-calendar-day" aria-hidden="true"></i>
+            <h3>Date & Time</h3>
+            <p>September 11, 2025<br />4:00 PM - 10:00 PM</p>
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-church" aria-hidden="true"></i>
+            <h3>Ceremony</h3>
+            <p>4:30 PM<br />Main Garden</p>
+          </div>
+        </div>
+
+        <div
+          class="info-card"
+          style="margin-top: 20px"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <i class="fas fa-glass-cheers" aria-hidden="true"></i>
+          <h3>Reception</h3>
+          <p>6:00 PM<br />Grand Ballroom</p>
+        </div>
+
+        <div
+          class="info-card"
+          style="margin-top: 20px"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <h3>Location</h3>
+          <p>St Thomas 00802, USVI</p>
+          <a
+            href="https://maps.app.goo.gl/3ruJ6ZiXo8SEEiE96"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+            style="margin-top: 15px"
+            >Get Directions</a
+          >
+        </div>
+
+        <div class="map-container" data-aos="fade-up" data-aos-delay="500">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d623.8626033431653!2d-64.82424928621136!3d18.302759157360015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sid!4v1744117893860!5m2!1sen!2sid"
+            width="100%"
+            height="400"
+            style="border: 0; border-radius: var(--border-radius)"
+            allowfullscreen=""
+            loading="lazy"
+            title="Wedding venue location map"
+            aria-label="Google Maps showing Epstein's island"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="accommodations" class="accommodations">
+      <div class="details" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Accommodations</h2>
+        <p>
+          We've arranged special rates from Mr. Epstein, the accomodations are
+          completely "free". <br />
+          Including children's entertainment.
+        </p>
+
+        <div class="info-cards">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-hotel" aria-hidden="true"></i>
+            <h3>Grand Diddiston Hotel</h3>
+            <p>0.5 miles from venue<br />Group code: TEDIWOWO<br /></p>
+            <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px"
+              >Book Room</a
+            >
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-bed" aria-hidden="true"></i>
+            <h3>Fire Ant Inn</h3>
+            <p>1.2 miles from venue<br />Group code: TW2025<br /></p>
+            <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px"
+              >Book Room</a
+            >
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-landmark" aria-hidden="true"></i>
+            <h3>Drake Suites</h3>
+            <p>2.0 miles from venue<br />Group code: TWWED<br /></p>
+            <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px"
+              >Book Room</a
+            >
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill="var(--primary-color)"
+                d="M1.228 10.891a.53.53 0 0 0-.159.69l1.296 2.244c.133.23.438.325.677.208L7 12.116V19h2v-7.854l4.071-1.973l-2.62-4.54zm17.229-7.854a4.06 4.06 0 0 0-5.546-1.484c-.91.525-1.508 1.359-1.801 2.289l2.976 5.156c.951.212 1.973.11 2.885-.415a4.06 4.06 0 0 0 1.486-5.546"
+              />
+            </svg>
+            <h3>Diddy's Special Show</h3>
+            <p>
+              At the venue. <br />
+              Group code: TWWED
+            </p>
+            <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px"
+              >Book Room</a
+            >
+          </div>
+        </div>
+
+        <p style="margin-top: 30px; text-align: center">
+          Please book your accommodations by September 11, 2025 to guarantee the
+          group rate.
+        </p>
+      </div>
+    </section>
+
+    <section id="rsvp" class="rsvp">
+      <div class="details" data-aos="fade-up" data-aos-duration="1000">
+        <h2>RSVP</h2>
+        <p>
+          Please let us know if you'll be joining us on our special day by
+          September 11, 2025.
+        </p>
+        <p>
+          You can RSVP using the form below or by calling Tedi at (62)
+          878-1223-1312.
+        </p>
+
+        <div data-aos="fade-up" data-aos-delay="200" style="margin-top: 30px">
+          <form id="rsvp-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="attending">Will you be attending?</label>
+              <select id="attending" class="form-control" required>
+                <option value="" disabled selected>Please select</option>
+                <option value="yes">Joyfully Accept</option>
+                <option value="no">Regretfully Decline</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests (including yourself)</label>
+              <select id="guests" class="form-control" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dietary">Dietary Restrictions</label>
+              <textarea
+                id="dietary"
+                class="form-control"
+                placeholder="Please list any dietary restrictions or allergies"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="message">Message to the Couple (Optional)</label>
+              <textarea
+                id="message"
+                class="form-control"
+                placeholder="Share your well wishes or message"
+                rows="3"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%"
+              aria-label="Submit RSVP form"
+            >
+              Send RSVP
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="registry" class="registry">
+      <div class="details" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Registry</h2>
+        <p>
+          Your presence at our wedding is the greatest gift of all. However, if
+          you wish to honor us with a gift, we've registered at the following
+          places:
+        </p>
+
+        <div class="info-cards" style="margin-top: 30px">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-store" aria-hidden="true"></i>
+            <h3>Crate & Barrel</h3>
+            <p>Registry #: 987654321</p>
+            <a
+              href="https://www.crateandbarrel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px; padding: 10px 20px; font-size: 14px"
+              aria-label="View Crate and Barrel registry"
+              >View Registry</a
+            >
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fab fa-amazon" aria-hidden="true"></i>
+            <h3>Amazon</h3>
+            <p>Search for "Tedina & Wowo Wedding"</p>
+            <a
+              href="https://www.amazon.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px; padding: 10px 20px; font-size: 14px"
+              aria-label="View Amazon registry"
+              >View Registry</a
+            >
+          </div>
+
+          <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-plane" aria-hidden="true"></i>
+            <h3>Honeymoon Fund</h3>
+            <p>Contribute to our dream honeymoon in Italy</p>
+            <a
+              href="https://www.zola.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              style="margin-top: 15px; padding: 10px 20px; font-size: 14px"
+              aria-label="Contribute to honeymoon fund"
+              >Contribute</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="details" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="accordion">
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+            <button class="accordion-toggle">What's the dress code?</button>
+            <div class="accordion-content">
+              <p>
+                Semi-formal attire is requested. The ceremony and reception will
+                be held outdoors on garden grounds, so comfortable shoes are
+                recommended.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="150">
+            <button class="accordion-toggle">
+              Is there parking available?
+            </button>
+            <div class="accordion-content">
+              <p>
+                Yes, complimentary valet parking is available at the venue.
+                There is also self-parking available in the adjacent parking
+                structure.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+            <button class="accordion-toggle">Can I bring a plus one?</button>
+            <div class="accordion-content">
+              <p>
+                Due to venue capacity constraints, we can only accommodate those
+                guests formally invited on your invitation. Please refer to your
+                invitation for the exact number of seats reserved in your honor.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="250">
+            <button class="accordion-toggle">
+              Will the wedding be indoors or outdoors?
+            </button>
+            <div class="accordion-content">
+              <p>
+                The ceremony will be held in the outdoor garden, weather
+                permitting. The reception will be in the Grand Ballroom. In case
+                of inclement weather, the ceremony will be moved to the covered
+                terrace.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+            <button class="accordion-toggle">Are children welcome?</button>
+            <div class="accordion-content">
+              <p>
+                Yes! However, we do kindly ask that the little ones are left at
+                the provided accomodations during the event.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up" data-aos-delay="350">
+            <button class="accordion-toggle">
+              Will transportation be provided?
+            </button>
+            <div class="accordion-content">
+              <p>
+                We will be providing shuttle service between the recommended
+                hotels and the venue. Shuttles will depart from each hotel at
+                3:30 PM and return at 10:30 PM and 11:30 PM.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="details" data-aos="fade-up" data-aos-duration="800">
+        <p class="names" style="font-size: 2rem">Tedina & Wowo</p>
+        <p>September 11, 2025 • St Thomas, USVI</p>
+        <div class="divider" style="max-width: 300px; margin: 20px auto">
+          <div class="divider-line"></div>
+          <span class="heart">♥</span>
+          <div class="divider-line"></div>
+        </div>
+        <p>We can't wait to celebrate with you!</p>
+
+        <div class="social-links">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Tedina & Wowo's Instagram"
+          >
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            href="mailto:tedinwowo@example.com"
+            aria-label="Email Tedina & Wowo"
+          >
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+          <a href="tel:+628782341234" aria-label="Call Tedi">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        disable: "mobile",
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Update active state
+          document
+            .querySelectorAll("nav a")
+            .forEach((a) => a.classList.remove("active"));
+          this.classList.add("active");
+
+          const targetId = this.getAttribute("href");
+          const targetSection = document.querySelector(targetId);
+
+          window.scrollTo({
+            top: targetSection.offsetTop - 20,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Update active nav based on scroll position
+      window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+
+        document.querySelectorAll("section").forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute("id");
+
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            document.querySelectorAll("nav a").forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === "#" + sectionId) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      });
+
+      // Countdown Timer
+      const weddingDate = new Date("September 11, 2025 16:30:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("minutes").innerHTML = "00";
+          document.getElementById("seconds").innerHTML = "00";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML =
+          days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML =
+          seconds < 10 ? "0" + seconds : seconds;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Form validation
+      const form = document.getElementById("rsvp-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Reset previous errors
+          document.querySelectorAll(".form-group").forEach((group) => {
+            group.classList.remove("error");
+            const errorMsg = group.querySelector(".error-message");
+            if (errorMsg) errorMsg.remove();
+          });
+
+          // Validate inputs
+          let isValid = true;
+
+          const name = document.getElementById("name");
+          if (!name.value.trim()) {
+            showError(name, "Please enter your name");
+            isValid = false;
+          }
+
+          const email = document.getElementById("email");
+          if (!email.value.trim()) {
+            showError(email, "Please enter your email");
+            isValid = false;
+          } else if (!isValidEmail(email.value)) {
+            showError(email, "Please enter a valid email address");
+            isValid = false;
+          }
+
+          const attending = document.getElementById("attending");
+          if (!attending.value) {
+            showError(attending, "Please select if you are attending");
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Show success message
+            form.innerHTML = `
+              <div class="success-message">
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: #28a745; margin-bottom: 15px;"></i>
+                <h3 style="
+                <h3 style="color: #155724; margin-bottom: 10px;">Thank you for your RSVP!</h3>
+                <p>We've received your response and look forward to celebrating with you.</p>
+              </div>
+            `;
+
+            // In a real implementation, you would send form data to a server here
+            console.log("Form submitted:", {
+              name: name.value,
+              email: email.value,
+              attending: attending.value,
+              guests: document.getElementById("guests").value,
+              dietary: document.getElementById("dietary").value,
+              message: document.getElementById("message").value,
+            });
+          }
+        });
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function showError(input, message) {
+        const formGroup = input.parentElement;
+        formGroup.classList.add("error");
+        const errorMessage = document.createElement("span");
+        errorMessage.className = "error-message";
+        errorMessage.textContent = message;
+        formGroup.appendChild(errorMessage);
+        input.focus();
+      }
+
+      // Accordion functionality
+      const accordionToggles = document.querySelectorAll(".accordion-toggle");
+      accordionToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const content = this.nextElementSibling;
+          content.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
