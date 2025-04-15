@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emoji Picker OwO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        padding: 2.5rem;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+        text-align: center;
+        max-width: 450px;
+        width: 90%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: linear-gradient(90deg, #ff6b95, #ff4081, #ff6b95);
+      }
+
+      .title {
+        font-family: "Quicksand", sans-serif;
+        color: #e91e63;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.1);
+        position: relative;
+        display: inline-block;
+      }
+
+      .title::before,
+      .title::after {
+        content: "✨";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+      }
+
+      .title::before {
+        left: -2rem;
+      }
+
+      .title::after {
+        right: -2rem;
+      }
+
+      .select-wrapper {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      select {
+        font-family: "Nunito", sans-serif;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 2px solid #ffcce7;
+        border-radius: 15px;
+        font-size: 1rem;
+        width: 85%;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e91e63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1em;
+      }
+
+      select:hover {
+        border-color: #ff4081;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+      }
+
+      select:focus {
+        outline: none;
+        border-color: #e91e63;
+        box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+      }
+
+      .preview-container {
+        background: linear-gradient(135deg, #fff5f8 0%, #fce4ec 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: inset 0 2px 10px rgba(233, 30, 99, 0.1);
+      }
+
+      .preview {
+        font-size: 72px;
+        min-height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .preview:hover {
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      .label {
+        font-family: "Quicksand", sans-serif;
+        color: #ff4081;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      /* Decorative elements */
+      .decoration {
+        position: absolute;
+        font-size: 1.2rem;
+        opacity: 0.5;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .decoration:nth-child(1) {
+        top: 20px;
+        left: 20px;
+        animation-delay: 0s;
+      }
+      .decoration:nth-child(2) {
+        top: 20px;
+        right: 20px;
+        animation-delay: 0.5s;
+      }
+      .decoration:nth-child(3) {
+        bottom: 20px;
+        left: 20px;
+        animation-delay: 1s;
+      }
+      .decoration:nth-child(4) {
+        bottom: 20px;
+        right: 20px;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0);
+        }
+        50% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 480px) {
+        .container {
+          padding: 1.5rem;
+        }
+
+        .title {
+          font-size: 1.5rem;
+        }
+
+        select {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="decoration">🌸</div>
+      <div class="decoration">✨</div>
+      <div class="decoration">🌟</div>
+      <div class="decoration">💖</div>
+
+      <h1 class="title">Emoji Picker~</h1>
+
+      <div class="select-wrapper">
+        <span class="label">Choose Category</span>
+        <select id="categoryDropdown">
+          <option value="">Pick a category! 💝</option>
+          <option value="faces">Cute Faces 🥰</option>
+          <option value="animals">Adorable Animals 🐰</option>
+          <option value="food">Yummy Treats 🍰</option>
+        </select>
+      </div>
+
+      <div class="select-wrapper">
+        <span class="label">Pick an Emoji</span>
+        <select id="emojiDropdown">
+          <option value="">Choose your emoji! ✨</option>
+        </select>
+      </div>
+
+      <div class="preview-container">
+        <span class="label">Your Chosen Emoji</span>
+        <div class="preview" id="emojiPreview"></div>
+      </div>
+    </div>
+
+    <script>
+      const emojiData = {
+        faces: {
+          "Grinning Face": "😀",
+          "Winking Face": "😉",
+          "Smiling Face with Hearts": "🥰",
+          "Star-Struck": "🤩",
+          "Heart Eyes": "😍",
+          "Happy Tears": "😂",
+          "Cute Blush": "☺️",
+        },
+        animals: {
+          "Puppy Dog": "🐕",
+          "Kitty Cat": "🐱",
+          "Baby Monkey": "🐒",
+          "Little Penguin": "🐧",
+          Hamster: "🐹",
+          "Baby Chick": "🐥",
+          Unicorn: "🦄",
+        },
+        food: {
+          "Yummy Pizza": "🍕",
+          Burger: "🍔",
+          Taco: "🌮",
+          "Sushi Roll": "🍣",
+          "Ice Cream": "🍦",
+          Cake: "🎂",
+          Cookie: "🍪",
+        },
+      };
+
+      const categoryDropdown = document.getElementById("categoryDropdown");
+      const emojiDropdown = document.getElementById("emojiDropdown");
+      const emojiPreview = document.getElementById("emojiPreview");
+
+      categoryDropdown.addEventListener("change", (e) => {
+        const selectedCategory = e.target.value;
+        emojiDropdown.innerHTML =
+          '<option value="">Choose your emoji! ✨</option>';
+        emojiPreview.textContent = "";
+
+        if (selectedCategory) {
+          const emojis = emojiData[selectedCategory];
+          for (const [name, emoji] of Object.entries(emojis)) {
+            const option = document.createElement("option");
+            option.value = emoji;
+            option.textContent = `${name} ${emoji}`;
+            emojiDropdown.appendChild(option);
+          }
+        }
+      });
+
+      emojiDropdown.addEventListener("change", (e) => {
+        const selectedEmoji = e.target.value;
+        emojiPreview.textContent = selectedEmoji;
+      });
+    </script>
+  </body>
+</html>
