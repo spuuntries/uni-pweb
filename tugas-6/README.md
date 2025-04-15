@@ -1,4 +1,4 @@
-# **Web Programming 5th Assignment**
+# **Web Programming 6th Assignment**
 
 Faiz Muhammad Kautsar  
 5054231013
@@ -24,7 +24,7 @@ Although you _can_ interact w/ them on here as well.
 
 For registration we were tasked w/ autocomplete, so I did that, for the name, course, and lecturer inputs.
 
-![alt text](image-2.png)
+![alt text](image-13.png)
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 
