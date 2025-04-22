@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Contact Meee~~~ ✨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #1a1a2e;
+        background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px
+          ),
+          linear-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+        background-size: 20px 20px;
+        font-family: "VT323", monospace;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        background-color: rgba(30, 30, 46, 0.95);
+        border: 3px solid #9d4edd;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(157, 78, 221, 0.3);
+        position: relative;
+      }
+
+      .form-container::before {
+        content: "✧･ﾟ: *✧･ﾟ:*";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #9d4edd;
+        font-size: 24px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #9d4edd;
+        text-shadow: 2px 2px rgba(157, 78, 221, 0.2);
+        margin-bottom: 30px;
+        font-size: clamp(2rem, 5vw, 2.5rem);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #c77dff;
+        font-size: 1.2em;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #9d4edd;
+        border-radius: 5px;
+        background-color: rgba(30, 30, 46, 0.8);
+        font-family: "VT323", monospace;
+        font-size: 1.1em;
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #c77dff;
+        box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+        background-color: rgba(30, 30, 46, 0.9);
+      }
+
+      button {
+        background-color: #9d4edd;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "VT323", monospace;
+        font-size: 1.2em;
+        display: block;
+        margin: 20px auto;
+        box-shadow: 3px 3px 0px #7b2cbf;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #c77dff;
+        transform: translateY(2px);
+        box-shadow: 1px 1px 0px #7b2cbf;
+      }
+
+      .error {
+        color: #ff6b6b;
+        text-align: center;
+        display: none;
+        font-size: 1.1em;
+        background-color: rgba(255, 107, 107, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+
+      .success {
+        color: #69ff69;
+        text-align: center;
+        display: none;
+        font-size: 1.1em;
+        background-color: rgba(105, 255, 105, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+
+      .pixel-heart {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        color: #c77dff;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      /* Glow effect on hover */
+      .form-container:hover {
+        box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 480px) {
+        .form-container {
+          padding: 20px;
+        }
+
+        input,
+        textarea,
+        button {
+          padding: 10px;
+        }
+
+        .form-container::before {
+          font-size: 18px;
+          top: -20px;
+        }
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a2e;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #9d4edd;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c77dff;
+      }
+
+      /* Floating animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .pixel-heart {
+        animation: float 3s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>✧ Contact Me~ ✧</h1>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">⋆ Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Your name OwO"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">⋆ Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="your.email@owo.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">⋆ Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            placeholder="Type your message here ♡"
+          ></textarea>
+        </div>
+
+        <button type="submit">✧ Send Message ✧</button>
+      </form>
+
+      <div id="errorMessage" class="error">
+        (｡•́︿•̀｡) Something went wrong. Please try again.
+      </div>
+
+      <div id="successMessage" class="success">
+        (◕‿◕) Message sent successfully! ♡
+      </div>
+
+      <div class="pixel-heart">♡(◡‿◡✿)</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#contactForm").on("submit", function (e) {
+          e.preventDefault();
+
+          const formData = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            message: $("#message").val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://dummyjson.com/test",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (response) {
+              $("#successMessage").fadeIn();
+              $("#errorMessage").hide();
+              $("#contactForm")[0].reset();
+            },
+            error: function (xhr, status, error) {
+              $("#errorMessage").fadeIn();
+              $("#successMessage").hide();
+              console.error("Error:", error);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
