@@ -33,4 +33,8 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
         <td>Tugas 6 - Javascript</td>
         <td><a href="https://pweb.spuun.art/tugas-6/">/tugas-6/</a></td>
     </tr>
+    <tr>
+        <td>Tugas 7 - Contact Form</td>
+        <td><a href="https://pweb.spuun.art/tugas-7/">/tugas-7/</a></td>
+    </tr>
 </table>
