@@ -668,6 +668,13 @@
           .addEventListener("mouseenter", () => {
             baffleElements.reveal(1000);
           });
+
+        const registerButton = document.querySelector(
+          '[data-window="register-window"]'
+        );
+        if (registerButton) {
+          registerButton.click();
+        }
       });
 
       function createSparkle() {
