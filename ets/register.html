@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join CatTheFlag - Registration Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/libphonenumber-js@1.10.51/bundle/libphonenumber-js.min.js"></script>
+    <script type="module">
+      import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+      polyfillCountryFlagEmojis();
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Twemoji Country Flags", "Quicksand", sans-serif;
+      }
+
+      body {
+        background-color: #1a1025;
+        color: #fff;
+        line-height: 1.6;
+        background-image: radial-gradient(#ff69b415 2px, transparent 2px);
+        background-size: 40px 40px;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .form-container {
+        background: rgba(255, 192, 203, 0.15);
+        border: 3px solid #ff69b4;
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(5px);
+        margin-top: 2rem;
+      }
+
+      h1 {
+        color: #ff69b4;
+        text-align: center;
+        font-family: "Share Tech Mono", monospace;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px #ff69b4;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        color: #ff69b4;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 192, 203, 0.1);
+        border: 2px solid #ff69b4;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        box-shadow: 0 0 10px #ff69b4;
+      }
+
+      .radio-group {
+        display: flex;
+        gap: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      button {
+        background: #ff69b4;
+        color: #1a1025;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 2rem auto 0;
+        font-weight: bold;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px #ff69b4;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background: #1a1025;
+        border: 3px solid #ff69b4;
+        border-radius: 15px;
+        padding: 2rem;
+        width: 90%;
+        max-width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .close-modal {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .error {
+        color: #ff4444;
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .radio-group {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      .form-container {
+        background: rgba(255, 192, 203, 0.15);
+        border: 3px solid #ff69b4;
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(5px);
+        margin-top: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .form-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #ff69b4,
+          #0ff,
+          transparent
+        );
+        animation: cyber-scan 3s linear infinite;
+      }
+
+      @keyframes cyber-scan {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      h1 {
+        color: #ff69b4;
+        text-align: center;
+        font-family: "Share Tech Mono", monospace;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px #ff69b4;
+        font-size: 2.5rem;
+      }
+
+      .kawaii-heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .kawaii-emoji {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .form-group:hover {
+        transform: translateX(5px);
+      }
+
+      .form-group::before {
+        content: "✧";
+        position: absolute;
+        left: -20px;
+        color: #ff69b4;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .form-group:hover::before {
+        opacity: 1;
+      }
+
+      .radio-group {
+        display: flex;
+        gap: 2rem;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 192, 203, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .radio-option:hover {
+        border-color: #ff69b4;
+        transform: translateY(-3px);
+      }
+
+      .radio-option input[type="radio"] {
+        display: none;
+      }
+
+      .radio-option label {
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .radio-option input[type="radio"]:checked + label {
+        color: #ff69b4;
+        text-shadow: 0 0 5px #ff69b4;
+      }
+
+      .kawaii-decoration {
+        position: fixed;
+        font-size: 2rem;
+        animation: float 4s ease-in-out infinite;
+        z-index: -1;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .modal-content {
+        background: #1a1025;
+        border: 3px solid #ff69b4;
+        border-radius: 15px;
+        padding: 2rem;
+        width: 90%;
+        max-width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        animation: modal-pop 0.5s ease-out;
+      }
+
+      @keyframes modal-pop {
+        0% {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      .clear-button {
+        background: rgba(255, 105, 180, 0.2);
+        color: #ff69b4;
+        border: 2px solid #ff69b4;
+        margin-right: 1rem;
+      }
+
+      .clear-button:hover {
+        background: rgba(255, 105, 180, 0.4);
+      }
+
+      .phone-input-container {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .country-select {
+        max-width: 200px;
+        background: rgba(255, 192, 203, 0.1);
+        border: 2px solid #ff69b4;
+        border-radius: 8px;
+        color: #fff;
+        padding: 0.8rem;
+        padding-right: 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+      }
+
+      .country-select:focus {
+        outline: none;
+        box-shadow: 0 0 10px #ff69b4;
+      }
+
+      .country-select option {
+        background: #1a1025;
+        color: #fff;
+      }
+
+      .phone-preview {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #ff69b4;
+        font-family: "Share Tech Mono", monospace;
+      }
+
+      /* Make the phone input take remaining space */
+      #phone {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="kawaii-heading">
+        <span class="kawaii-emoji">🎀</span>
+        <h1>Join CatTheFlag Team</h1>
+        <span class="kawaii-emoji">🐱</span>
+      </div>
+
+      <div class="kawaii-decoration" style="top: 10%; left: 5%">🎀</div>
+      <div class="kawaii-decoration" style="top: 30%; right: 5%">🌸</div>
+      <div class="kawaii-decoration" style="bottom: 20%; left: 8%">✨</div>
+      <div class="kawaii-decoration" style="bottom: 40%; right: 8%">🌟</div>
+
+      <div class="form-container">
+        <form id="registrationForm">
+          <button type="button" onclick="clearForm()" class="clear-button">
+            Clear Form ✗
+          </button>
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="A name? Or perhaps... an alias? :p"
+              required
+            />
+            <div class="error" id="fullname-error">
+              Please enter your full name
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email address, we'll contact you here primarily~"
+              required
+            />
+            <div class="error" id="email-error">
+              Please enter a valid email address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <div class="phone-input-container">
+              <select id="countryCode" class="country-select"></select>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter phone number"
+                required
+              />
+            </div>
+            <div class="error" id="phone-error">
+              Please enter a valid phone number
+            </div>
+            <div class="phone-preview" id="phonePreview"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="male" name="gender" value="male" />
+                <label for="male">Male 👦</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female 👧</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="other" name="gender" value="other" />
+                <label for="other">Other 🌟</label>
+              </div>
+            </div>
+            <div class="error" id="gender-error">Please select your gender</div>
+          </div>
+
+          <div class="form-group">
+            <label for="birthdate">Date of Birth</label>
+            <input type="date" id="birthdate" name="birthdate" required />
+            <div class="error" id="birthdate-error">
+              Please enter your date of birth
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              rows="3"
+              placeholder="Where you live~ (This can be as general as you'd like btw lol :0)"
+              required
+            ></textarea>
+            <div class="error" id="address-error">
+              Please enter your address
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="portfolio">Portfolio</label>
+            <textarea
+              id="portfolio"
+              name="portfolio"
+              rows="3"
+              placeholder="A portfolio, or website, or blog, or whatever we can refer to know you more~"
+              required
+            ></textarea>
+            <div class="error" id="portfolio-error">
+              Please enter your portfolio
+            </div>
+          </div>
+
+          <button type="submit">Register ✧ にゃー！</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="confirmationModal">
+      <div class="modal-content">
+        <h2 style="color: #ff69b4">✧ Registration Successful! ✧</h2>
+        <p style="margin: 1rem 0">
+          Welcome to our kawaii hacker family! (=^･ω･^=)
+        </p>
+        <p style="margin: 1rem 0">We'll contact you soon~ にゃー！</p>
+        <button class="close-modal" onclick="closeModal()">Close ✧</button>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("registrationForm");
+      const modal = document.getElementById("confirmationModal");
+      const formFields = [
+        "fullname",
+        "email",
+        "phone",
+        "gender",
+        "birthdate",
+        "address",
+        "portfolio",
+      ];
+
+      // Function to get country emoji flag, snipped this off https://dev.to/jorik/country-code-to-flag-emoji-a21
+      function getFlagEmoji(countryCode) {
+        const codePoints = countryCode
+          .toUpperCase()
+          .split("")
+          .map((char) => 127397 + char.charCodeAt());
+        return String.fromCodePoint(...codePoints);
+      }
+
+      function populateCountries() {
+        const select = document.getElementById("countryCode");
+        const countries = libphonenumber.getCountries();
+
+        // Get current browser's language to determine default country
+        const userLocale = navigator.language || navigator.userLanguage;
+        const userCountry = userLocale.split("-")[1] || "ID"; // Default to ID if can't determine
+
+        const countryData = countries.map((country) => {
+          const metadata = new libphonenumber.Metadata();
+          metadata.selectNumberingPlan(country);
+          const countryCode = metadata.countryCallingCode();
+
+          const countryName = new Intl.DisplayNames([userLocale], {
+            type: "region",
+          }).of(country);
+
+          return {
+            code: country,
+            name: countryName,
+            flag: getFlagEmoji(country),
+            dialCode: countryCode,
+          };
+        });
+
+        countryData.sort((a, b) => a.name.localeCompare(b.name));
+
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.disabled = true;
+        defaultOption.textContent = "Select country";
+        select.appendChild(defaultOption);
+
+        countryData.forEach((country) => {
+          const option = document.createElement("option");
+          option.value = country.code;
+          option.textContent = `${country.flag} +${country.dialCode} ${country.name}`;
+          select.appendChild(option);
+
+          if (country.code === userCountry) {
+            option.selected = true;
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", populateCountries);
+
+      // Load saved data when page loads
+      window.addEventListener("load", () => {
+        const savedData = JSON.parse(localStorage.getItem("formData")) || {};
+
+        formFields.forEach((field) => {
+          if (field === "gender") {
+            const savedGender = savedData[field];
+            if (savedGender) {
+              document.querySelector(`input[value="${savedGender}"]`).checked =
+                true;
+            }
+          } else if (field === "phone") {
+            if (savedData["countryCode"]) {
+              countrySelect.value = savedData["countryCode"];
+            }
+            if (savedData[field]) {
+              phoneInput.value = savedData[field];
+              formatPhoneNumber();
+            }
+          } else {
+            const input = document.getElementById(field);
+            if (input && savedData[field]) {
+              input.value = savedData[field];
+            }
+          }
+        });
+      });
+
+      // Save data as user types/changes values
+      function saveToLocalStorage() {
+        const formData = {};
+
+        formFields.forEach((field) => {
+          if (field === "gender") {
+            const selectedGender = document.querySelector(
+              'input[name="gender"]:checked'
+            );
+            formData[field] = selectedGender ? selectedGender.value : "";
+          } else if (field === "phone") {
+            formData[field] = phoneInput.value;
+            formData["countryCode"] = countrySelect.value;
+          } else {
+            formData[field] = document.getElementById(field).value;
+          }
+        });
+
+        localStorage.setItem("formData", JSON.stringify(formData));
+      }
+
+      // Add input event listeners to all fields
+      formFields.forEach((field) => {
+        if (field === "gender") {
+          document.querySelectorAll('input[name="gender"]').forEach((radio) => {
+            radio.addEventListener("change", saveToLocalStorage);
+          });
+        } else {
+          document
+            .getElementById(field)
+            .addEventListener("input", saveToLocalStorage);
+        }
+      });
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      const phoneInput = document.getElementById("phone");
+      const countrySelect = document.getElementById("countryCode");
+      const phonePreview = document.getElementById("phonePreview");
+      let currentPhoneNumber = null;
+
+      function formatPhoneNumber() {
+        const countryCode = countrySelect.value;
+        const phoneNumber = phoneInput.value.replace(/\D/g, "");
+
+        try {
+          // Parse phone number using selected country
+          currentPhoneNumber = new libphonenumber.parsePhoneNumber(
+            phoneNumber,
+            countryCode
+          );
+
+          // Format for display
+          phoneInput.value = currentPhoneNumber.formatNational();
+          phonePreview.textContent = `✧ International format: ${currentPhoneNumber.formatInternational()} ✧`;
+          phonePreview.style.display = "block";
+
+          return true;
+        } catch (error) {
+          phonePreview.textContent = "✧ Invalid phone number ✧";
+          phonePreview.style.display = "block";
+          return false;
+        }
+      }
+
+      function validatePhone() {
+        try {
+          if (!currentPhoneNumber) return false;
+          return currentPhoneNumber.isValid();
+        } catch (error) {
+          return false;
+        }
+      }
+
+      phoneInput.addEventListener("input", (e) => {
+        formatPhoneNumber();
+        saveToLocalStorage();
+      });
+
+      countrySelect.addEventListener("change", (e) => {
+        formatPhoneNumber();
+        saveToLocalStorage();
+      });
+
+      function showError(elementId, show) {
+        const error = document.getElementById(elementId);
+        error.style.display = show ? "block" : "none";
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        // Validate values
+
+        if (!form.fullname.value.trim()) {
+          showError("fullname-error", true);
+          isValid = false;
+        } else {
+          showError("fullname-error", false);
+        }
+
+        if (!validateEmail(form.email.value)) {
+          showError("email-error", true);
+          isValid = false;
+        } else {
+          showError("email-error", false);
+        }
+
+        if (!validatePhone()) {
+          showError("phone-error", true);
+          isValid = false;
+        } else {
+          showError("phone-error", false);
+        }
+
+        if (!form.gender.value) {
+          showError("gender-error", true);
+          isValid = false;
+        } else {
+          showError("gender-error", false);
+        }
+
+        if (!form.birthdate.value) {
+          showError("birthdate-error", true);
+          isValid = false;
+        } else {
+          showError("birthdate-error", false);
+        }
+
+        if (!form.address.value.trim()) {
+          showError("address-error", true);
+          isValid = false;
+        } else {
+          showError("address-error", false);
+        }
+
+        if (!form.portfolio.value.trim()) {
+          showError("portfolio-error", true);
+          isValid = false;
+        } else {
+          showError("portfolio-error", false);
+        }
+
+        if (isValid) {
+          modal.style.display = "block";
+          // Clear localStorage after successful submission
+          localStorage.removeItem("formData");
+          form.reset();
+        }
+      });
+
+      function clearForm() {
+        form.reset();
+        localStorage.removeItem("formData");
+      }
+    </script>
+  </body>
+</html>
