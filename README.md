@@ -37,4 +37,8 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
         <td>Tugas 7 - Contact Form</td>
         <td><a href="https://pweb.spuun.art/tugas-7/">/tugas-7/</a></td>
     </tr>
+    <tr>
+        <td>ETS - Registration Form</td>
+        <td><a href="https://pweb.spuun.art/ets/">/ets/</a></td>
+    </tr>
 </table>
