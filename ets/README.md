@@ -2,6 +2,8 @@
 
 ## **CatTheCat CTF Registration Form**
 
+View the deployed thing at: [https://pweb.spuun.art/ets/](https://pweb.spuun.art/ets/)
+
 | Key          | Value                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------- |
 | Title        | CatTheCat CTF Team Open Recruitment                                                             |
