@@ -2,12 +2,13 @@
 
 ## **CatTheCat CTF Registration Form**
 
-| Key          | Value                                                          |
-| ------------ | -------------------------------------------------------------- |
-| Title        | CatTheCat CTF Team Open Recruitment                            |
-| Team Members | [spuun](https://github.com/spuuntries) (Faiz, NRP: 5054231013) |
-| Thumbnail    | ![here](./thumbnail.png)                                       |
-| Youtube Demo | [https://youtu.be/vPg1wdtAnGw](https://youtu.be/vPg1wdtAnGw)   |
+| Key          | Value                                                                                           |
+| ------------ | ----------------------------------------------------------------------------------------------- |
+| Title        | CatTheCat CTF Team Open Recruitment                                                             |
+| Team Members | [spuun](https://github.com/spuuntries) (Faiz, NRP: 5054231013)                                  |
+| Thumbnail    | ![here](./thumbnail.png)                                                                        |
+| Youtube Demo | [https://youtu.be/vPg1wdtAnGw](https://youtu.be/vPg1wdtAnGw)                                    |
+| PPT          | [./ppt-pweb.pdf](ppt-pweb.pdf) <br/> (The canva is at [https://s.id/t7BS5](https://s.id/t7BS5)) |
 
 ## **Description**
 
