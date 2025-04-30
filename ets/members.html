@@ -4,10 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CatTheFlag - Our Pawsome Team! 🐱</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Share+Tech+Mono&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😺</text></svg>"
+    />
+
+    <meta name="description" content="Our kawaii hacker family! (=^･ω･^=)" />
+    <meta
+      name="keywords"
+      content="ctf, ctf team, indonesian ctf, capture-the-flag, capture the flag"
+    />
+    <meta name="author" content="cattheflag" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CatTheFlag - Registration Form" />
+    <meta
+      property="og:description"
+      content="Our kawaii hacker family! (=^･ω･^=)"
+    />
+    <meta property="og:url" content="https://cat.theflag.cat" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="cat.theflag.cat" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="CatTheFlag - Registration Form" />
+    <meta
+      name="twitter:description"
+      content="Our kawaii hacker family! (=^･ω･^=)"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cat.theflag.cat" />
+
     <style>
       * {
         margin: 0;
@@ -316,6 +358,66 @@
           margin: 1rem 0;
         }
       }
+
+      .remove-all-btn {
+        background: transparent;
+        color: #ff69b4;
+        border: 2px solid #ff69b4;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        font-family: "Share Tech Mono", monospace;
+        cursor: pointer;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .remove-all-btn:hover {
+        color: #ff4444;
+        border-color: #ff4444;
+        transform: scale(1.05);
+        text-shadow: 0 0 5px #ff4444;
+      }
+
+      .remove-all-btn i {
+        margin-right: 8px;
+      }
+
+      .remove-member-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        color: #ff69b4;
+        border: 2px solid #ff69b4;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .remove-member-btn:hover {
+        color: #ff4444;
+        border-color: #ff4444;
+        transform: scale(1.1) rotate(90deg);
+        text-shadow: 0 0 5px #ff4444;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+      }
     </style>
   </head>
   <body>
@@ -328,6 +430,10 @@
         <div class="team-name">Meet Our Nyaa~ Team! ᓚᘏᗢ</div>
         <div class="kawaii-cat">🐱</div>
       </header>
+
+      <button class="remove-all-btn">
+        <i class="fas fa-trash-alt"></i> Remove All Members
+      </button>
 
       <div id="membersContainer" class="members-grid">
         <!-- We're rendering right here kk -->
@@ -359,6 +465,9 @@
           .map(
             (member) => `
                 <div class="member-card">
+                    <button class="remove-member-btn" onclick="removeMember(this)">
+                        <i class="fas fa-times"></i>
+                    </button>
                     <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
                     <h2 class="member-name">${member.name}</h2>
                     <div class="member-role">${member.role}</div>
@@ -407,6 +516,29 @@
       }
 
       document.addEventListener("DOMContentLoaded", fetchMembers);
+
+      function removeMember(button) {
+        const card = button.closest(".member-card");
+        card.style.animation = "fadeOut 0.3s ease-out forwards";
+        setTimeout(() => card.remove(), 300);
+      }
+
+      function removeAllMembers() {
+        const cards = document.querySelectorAll(".member-card");
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.animation = "fadeOut 0.3s ease-out forwards";
+            setTimeout(() => card.remove(), 300);
+          }, index * 100);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchMembers();
+        document
+          .querySelector(".remove-all-btn")
+          .addEventListener("click", removeAllMembers);
+      });
     </script>
   </body>
 </html>
