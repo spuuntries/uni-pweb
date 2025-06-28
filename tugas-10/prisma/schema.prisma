@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+model Student {
+  id          Int      @id @default(autoincrement())
+  name        String
+  studentId   String   @unique
+  course      String
+  lecturer    String
+  imageData   Bytes?  
+  imageType   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
