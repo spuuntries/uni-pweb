@@ -23,9 +23,9 @@ Since this is pretty much a recycle of the previous assignment, I really only ad
 
 You can filter by either or both course and lecturer, and get a PDF of all students attending said class. Here are some samples:
 
-![alt text](image-7.png)
-![alt text](image-8.png)
-![alt text](image-9.png)
+![alt text](image-7.jpg)
+![alt text](image-8.jpg)
+![alt text](image-9.jpg)
 
 Currently, the flow looks something like this:
 
