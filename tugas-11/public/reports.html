@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Reports ✨✨</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h2 {
+        font-family: "Pacifico", cursive;
+        color: #e91e63;
+        text-align: center;
+        margin-bottom: 35px;
+        font-size: 32px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-button {
+        display: inline-block;
+        text-decoration: none;
+        padding: 15px 30px;
+        background: linear-gradient(45deg, #e91e63, #f48fb1);
+        color: white;
+        border-radius: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2);
+      }
+
+      .nav-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+      }
+
+      .report-form {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #616161;
+      }
+
+      select,
+      input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #f8bbd0;
+        border-radius: 10px;
+        font-family: "Quicksand", sans-serif;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        background-color: #fff;
+      }
+
+      select:focus,
+      input:focus {
+        outline: none;
+        border-color: #e91e63;
+        box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+      }
+
+      .btn-generate {
+        background: linear-gradient(45deg, #e91e63, #f48fb1);
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Quicksand", sans-serif;
+        font-size: 1em;
+        display: block;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2);
+      }
+
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+      }
+
+      .filter-type {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .filter-option {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-option.active {
+        background: #fce4ec;
+        font-weight: 600;
+        color: #e91e63;
+        box-shadow: 0 4px 10px rgba(233, 30, 99, 0.1);
+      }
+
+      .filter-option:hover:not(.active) {
+        background: #f8bbd0;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .decoration {
+        position: fixed;
+        font-size: 50px;
+        opacity: 0.15;
+        pointer-events: none;
+        animation: float 6s ease-in-out infinite;
+        z-index: -1;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .decoration:nth-child(1) {
+        top: 20px;
+        left: 20px;
+        animation-delay: 0s;
+      }
+      .decoration:nth-child(2) {
+        top: 20px;
+        right: 20px;
+        animation-delay: 1.5s;
+      }
+      .decoration:nth-child(3) {
+        bottom: 20px;
+        left: 20px;
+        animation-delay: 3s;
+      }
+      .decoration:nth-child(4) {
+        bottom: 20px;
+        right: 20px;
+        animation-delay: 4.5s;
+      }
+
+      .loader {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      #reportTitle {
+        padding-right: 0;
+        padding-left: 0;
+        text-indent: 1em;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        .nav-button {
+          width: 100%;
+          text-align: center;
+          padding: 15px 0px;
+        }
+      }
+
+      .filter-checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .filter-checkbox {
+        display: flex;
+        align-items: center;
+        background: #f5f5f5;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-checkbox:hover {
+        background: #fce4ec;
+      }
+
+      .filter-checkbox input {
+        margin-right: 8px;
+        width: auto;
+      }
+
+      .filter-checkbox label {
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="decoration">📄</div>
+    <div class="decoration">📊</div>
+    <div class="decoration">📝</div>
+    <div class="decoration">📋</div>
+
+    <div class="container">
+      <h2>
+        <span class="sparkle">✨</span>
+        Student Reports
+        <span class="sparkle">✨</span>
+      </h2>
+
+      <a href="/" class="nav-button">← Back to Registration</a>
+
+      <div class="report-form">
+        <div class="filter-checkboxes">
+          <div class="filter-checkbox">
+            <input type="checkbox" id="filterLecturer" checked />
+            <label for="filterLecturer">Filter by Lecturer</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" id="filterCourse" checked />
+            <label for="filterCourse">Filter by Course</label>
+          </div>
+        </div>
+
+        <form id="reportForm">
+          <div class="form-group" id="lecturerField">
+            <label for="lecturer">Select Lecturer:</label>
+            <select name="lecturer" id="lecturer">
+              <option value="">Loading lecturers...</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="courseField">
+            <label for="course">Select Course:</label>
+            <select name="course" id="course">
+              <option value="">Loading courses...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reportTitle">Report Title (optional):</label>
+            <input
+              type="text"
+              name="reportTitle"
+              id="reportTitle"
+              placeholder="Enter a title for your report"
+            />
+          </div>
+
+          <button type="submit" class="btn-generate" id="generateBtn">
+            Generate PDF Report
+          </button>
+
+          <button
+            type="submit"
+            class="btn-generate hidden"
+            id="loadingBtn"
+            disabled
+          >
+            <span class="loader"></span> Generating PDF...
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterLecturerCheckbox =
+          document.getElementById("filterLecturer");
+        const filterCourseCheckbox = document.getElementById("filterCourse");
+        const lecturerField = document.getElementById("lecturerField");
+        const courseField = document.getElementById("courseField");
+        const lecturerSelect = document.getElementById("lecturer");
+        const courseSelect = document.getElementById("course");
+        const reportForm = document.getElementById("reportForm");
+        const generateBtn = document.getElementById("generateBtn");
+        const loadingBtn = document.getElementById("loadingBtn");
+
+        // Handle filter checkbox changes
+        filterLecturerCheckbox.addEventListener("change", function () {
+          lecturerField.classList.toggle("hidden", !this.checked);
+          lecturerSelect.required = this.checked;
+          updateFormValidation();
+        });
+
+        filterCourseCheckbox.addEventListener("change", function () {
+          courseField.classList.toggle("hidden", !this.checked);
+          courseSelect.required = this.checked;
+          updateFormValidation();
+        });
+
+        function updateFormValidation() {
+          // Ensure at least one filter is selected
+          if (
+            !filterLecturerCheckbox.checked &&
+            !filterCourseCheckbox.checked
+          ) {
+            // Re-check one of them if both are unchecked
+            filterLecturerCheckbox.checked = true;
+            lecturerField.classList.remove("hidden");
+            lecturerSelect.required = true;
+          }
+        }
+
+        // Load lecturers and courses
+        async function loadFilters() {
+          try {
+            const res = await fetch("/api/filters");
+            const data = await res.json();
+
+            if (data.success) {
+              // Populate lecturer dropdown
+              lecturerSelect.innerHTML =
+                '<option value="">Select a lecturer</option>';
+              data.lecturers.forEach((lecturer) => {
+                const option = document.createElement("option");
+                option.value = lecturer;
+                option.textContent = lecturer;
+                lecturerSelect.appendChild(option);
+              });
+
+              // Populate course dropdown
+              courseSelect.innerHTML =
+                '<option value="">Select a course</option>';
+              data.courses.forEach((course) => {
+                const option = document.createElement("option");
+                option.value = course;
+                option.textContent = course;
+                courseSelect.appendChild(option);
+              });
+            } else {
+              alert("Error loading filters");
+            }
+          } catch (err) {
+            console.error("Error:", err);
+            alert("Error loading filters");
+          }
+        }
+
+        loadFilters();
+
+        // Handle report generation
+        reportForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Check if at least one filter is selected
+          if (
+            !filterLecturerCheckbox.checked &&
+            !filterCourseCheckbox.checked
+          ) {
+            alert("Please select at least one filter type");
+            return;
+          }
+
+          // Check if selected filters have values
+          if (filterLecturerCheckbox.checked && !lecturerSelect.value) {
+            alert("Please select a lecturer");
+            return;
+          }
+
+          if (filterCourseCheckbox.checked && !courseSelect.value) {
+            alert("Please select a course");
+            return;
+          }
+
+          // Show loading button
+          generateBtn.classList.add("hidden");
+          loadingBtn.classList.remove("hidden");
+
+          const formData = new FormData(this);
+          const queryParams = new URLSearchParams();
+
+          if (filterLecturerCheckbox.checked) {
+            queryParams.append("lecturer", formData.get("lecturer"));
+          }
+
+          if (filterCourseCheckbox.checked) {
+            queryParams.append("course", formData.get("course"));
+          }
+
+          if (formData.get("reportTitle")) {
+            queryParams.append("title", formData.get("reportTitle"));
+          }
+
+          try {
+            // Generate PDF - this will open in a new tab
+            window.open(
+              `/api/generate-report?${queryParams.toString()}`,
+              "_blank"
+            );
+          } catch (err) {
+            console.error("Error:", err);
+            alert("Error generating report");
+          } finally {
+            // Hide loading button
+            setTimeout(() => {
+              generateBtn.classList.remove("hidden");
+              loadingBtn.classList.add("hidden");
+            }, 1000);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
