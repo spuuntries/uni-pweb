@@ -41,4 +41,20 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
         <td>ETS - Registration Form</td>
         <td><a href="https://pweb.spuun.art/ets/">/ets/</a></td>
     </tr>
+    <tr>
+        <td>Tugas 8 - Registration Form with a Backend (MongoDB)</td>
+        <td><a href="https://pweb-tugas8.spuun.art">/tugas-8/</a></td>
+    </tr>
+    <tr>
+        <td>Tugas 9 - Registration Form with a Backend (Postgres)</td>
+        <td><a href="https://pweb-tugas9.spuun.art">/tugas-9/</a></td>
+    </tr>
+    <tr>
+        <td>Tugas 10 - Registration Form with a picture upload</td>
+        <td><a href="https://tugas10.spuun.art">/tugas-10/</a></td>
+    </tr>
+    <tr>
+        <td>Tugas 11 - Registration Form with a PDF report generation feature</td>
+        <td><a href="https://tugas11.spuun.art">/tugas-11/</a></td>
+    </tr>
 </table>
