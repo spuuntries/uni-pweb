@@ -3,7 +3,7 @@
 Faiz Muhammad Kautsar  
 5054231013
 
-View the deployed version at: [https://tugas11.spuun.art/](https://tugas11.spuun.art/)
+View the deployed version at: [https://tugas-11.spuun.art/](https://tugas-11.spuun.art/)
 
 ![image 1](./image-1.png)
 ![image 2](image-2.png)
