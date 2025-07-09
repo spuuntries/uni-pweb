@@ -55,6 +55,6 @@ View the deployed version at [https://pweb.spuun.art/](https://pweb.spuun.art/).
     </tr>
     <tr>
         <td>Tugas 11 - Registration Form with a PDF report generation feature</td>
-        <td><a href="https://tugas11.spuun.art">/tugas-11/</a></td>
+        <td><a href="https://tugas-11.spuun.art">/tugas-11/</a></td>
     </tr>
 </table>
